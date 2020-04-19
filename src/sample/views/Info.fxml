@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="813.0" stylesheets="@../assests/style/css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.MasterpageController">
+   <children>
+      <VBox layoutX="4.0" layoutY="140.0" prefHeight="427.0" prefWidth="804.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="140.0">
+         <children>
+            <GridPane prefHeight="427.0" prefWidth="820.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="194.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="368.0" minHeight="10.0" prefHeight="315.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TableView prefHeight="351.0" prefWidth="793.0" GridPane.rowIndex="1">
+                    <columns>
+                      <TableColumn prefWidth="111.0" text="IDCommande" />
+                      <TableColumn prefWidth="120.0" text="Client FirstName" />
+                        <TableColumn prefWidth="120.0" text="Client LastName" />
+                        <TableColumn prefWidth="120.0" text="Produit" />
+                        <TableColumn prefWidth="120.0" text="Quantité" />
+                        <TableColumn prefWidth="120.0" text="Prix" />
+                        <TableColumn prefWidth="120.0" text="Total" />
+                    </columns>
+                  </TableView>
+                  <HBox alignment="CENTER" prefHeight="44.0" prefWidth="833.0" spacing="10.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="191.0" text="Nouvelle Commande " textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+      <Pane prefHeight="116.0" prefWidth="832.0" style="-fx-background-color: #778f9b;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Text layoutX="274.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Information">
+               <fill>
+                  <LinearGradient endX="1.0" startX="0.42857142857142855" startY="1.0">
+                     <stops>
+                        <Stop color="#222222" />
+                        <Stop color="#c7e3f2" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <font>
+                  <Font name="System Bold" size="47.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
