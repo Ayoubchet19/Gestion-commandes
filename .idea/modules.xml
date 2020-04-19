@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/javaprojectprivate-master.iml" filepath="$PROJECT_DIR$/.idea/javaprojectprivate-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/projetjavafx.iml" filepath="$PROJECT_DIR$/projetjavafx.iml" />
     </modules>
   </component>
 </project>
