@@ -7,7 +7,8 @@ public class Dbhandeler {
     public Connection Connect(){
         Connection con=null;
         try{
-            String urlcon = "jdbc:sqlite::resource:sample/assests/database/Database.db";
+           // String urlcon = "jdbc:sqlite::resource:sample/assests/database/DataBasee.db";
+            String urlcon = "jdbc:sqlite:DataBasee.db";
             con= DriverManager.getConnection(urlcon);
         }catch (SQLException e){
             Helper.Exseptiongmsg(e.toString());

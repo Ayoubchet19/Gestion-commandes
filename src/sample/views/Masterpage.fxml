@@ -19,19 +19,30 @@
    <left>
       <VBox fx:id="nav" prefHeight="552.0" prefWidth="228.0" styleClass="vboxx" stylesheets="@../assests/style/css.css" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="205.0" prefWidth="237.0">
+            <Pane prefHeight="181.0" prefWidth="213.0">
                <children>
-                  <ImageView fitHeight="237.0" fitWidth="370.0" layoutX="-66.0" layoutY="-32.0">
+                  <ImageView fitHeight="159.0" fitWidth="218.0" layoutX="8.0" layoutY="11.0">
                      <image>
                         <Image url="@../assests/style/images/logo%20app.png" />
                      </image>
                   </ImageView>
-                  <Text fill="WHITE" layoutX="2.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Navigation" textAlignment="CENTER" wrappingWidth="233.13671875">
+                  <Text fill="WHITE" layoutX="2.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Navigation" textAlignment="CENTER" wrappingWidth="233.13671875">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Line endX="100.0" layoutX="114.0" layoutY="191.0" startX="-100.0" stroke="#c9b7b7" />
+                  <Line endX="100.0" layoutX="114.0" layoutY="172.0" startX="-100.0" stroke="#c9b7b7" />
+                  <Button fx:id="logout" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Logout" prefHeight="35.0" prefWidth="97.0" stylesheets="@../assests/style/css.css" text="Logout" textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
                </children>
             </Pane>
             <Button fx:id="commande" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Commande" prefHeight="47.0" prefWidth="279.0" stylesheets="@../assests/style/css.css" text="Commande" textFill="WHITE">
@@ -159,6 +170,17 @@
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" />
                </VBox.margin>
+            </Button>
+            <Button fx:id="categorie" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#categorie" prefHeight="48.0" prefWidth="228.0" stylesheets="@../assests/style/css.css" text="Categorie" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <font>
+                  <Font size="15.0" />
+               </font>
             </Button>
          </children>
          <opaqueInsets>

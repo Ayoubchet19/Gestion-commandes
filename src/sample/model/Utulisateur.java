@@ -12,11 +12,11 @@ public class Utulisateur extends Dbhandeler {
         int rep=0;
         try {
             Connection con=this.Connect();
-            PreparedStatement pstm=con.prepareStatement("Select count(*) from User where (name=? or email=?)");
+            PreparedStatement pstm=con.prepareStatement("Select count(*) from User where (Username=? or email=?)");
             pstm.setString(1,name);
             pstm.setString(2,name);
            if(this.Count(pstm)==1){
-               pstm=con.prepareStatement("Select count(*) from User where (name=? or email=?) and pass=?");
+               pstm=con.prepareStatement("Select count(*) from User where (Username=? or email=?) and pass=?");
                pstm.setString(1,name);
                pstm.setString(2,name);
                pstm.setString(3,pass);

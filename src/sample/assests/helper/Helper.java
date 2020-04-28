@@ -1,9 +1,6 @@
 package sample.assests.helper;
 
-import animatefx.animation.BounceIn;
-import animatefx.animation.Jello;
-import animatefx.animation.LightSpeedIn;
-import animatefx.animation.Pulse;
+import animatefx.animation.*;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.RequiredFieldValidator;
@@ -34,7 +31,7 @@ public class Helper {
         try {
             View = FXMLLoader.load(getClass().getResource("/sample/views/"+file+".fxml"));
             pane.setCenter(View);
-            new  LightSpeedIn(pane.getCenter()).play();
+            new FadeIn(pane.getCenter()).play();
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
