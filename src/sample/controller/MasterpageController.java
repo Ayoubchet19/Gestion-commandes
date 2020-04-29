@@ -49,7 +49,7 @@ public class MasterpageController implements Initializable {
     }
 
     @FXML
-    void RecherClient(ActionEvent event) { navl.NavRouter("Searchclient",Parent); }
+    void RecherClient(ActionEvent event) { navl.NavRouter("AfficherClient",Parent); }
 
     @FXML
     void RechercherCommmande(ActionEvent event) {
