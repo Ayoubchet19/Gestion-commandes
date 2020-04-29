@@ -1,5 +1,7 @@
 package sample.controller;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,6 +41,28 @@ public class AfficherClientController implements Initializable {
     @FXML
     private TableColumn<Client, String> Email;
     public Client c=new Client();
+
+    @FXML
+    private JFXTextField searchFX;
+
+    @FXML
+    private JFXButton rechrche;
+
+    @FXML
+    void rechercher(ActionEvent event) {
+        Client c = new Client();
+        Display.setItems(c.rechercherClient(searchFX.getText()));
+        System.out.println("test");
+
+    }
+
+    @FXML
+    void search(ActionEvent event) {
+
+
+
+    }
+
 
     @FXML
     public void  AddClient(ActionEvent event) throws IOException {
