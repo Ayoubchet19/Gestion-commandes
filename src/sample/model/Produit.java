@@ -86,5 +86,6 @@ public class Produit  extends Dbhandeler {
     }
 
     @Override
-    public String toString() { return  id+""; }
+    public String toString() {
+        return  libele+""; }
 }

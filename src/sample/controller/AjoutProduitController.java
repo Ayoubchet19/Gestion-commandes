@@ -59,7 +59,10 @@ public void vider(){label.clear();quantity.clear();Prix.clear();Category.getSele
         }
     }
     @Override
-    public void initialize(URL location, ResourceBundle resources) { Categorie cat=new Categorie();Category.setItems(cat.showCategorie()); }
+    public void initialize(URL location, ResourceBundle resources) {
+    Categorie cat=new Categorie();
+    Category.setItems(cat.showCategorie());
+    }
 
     public void  Retour(ActionEvent event) throws IOException {
         Parent ProductParent= FXMLLoader.load(getClass().getResource("../views/MasterPage.fxml"));

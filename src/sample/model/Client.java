@@ -66,8 +66,8 @@ public class Client extends Dbhandeler {
         this.sexe = sexe;
     }
 
-    @Override
-    public String toString() {
+
+   public String toString2() {
         return "Client{" +
                 "id_client=" + id_client +
                 ", Num_tel='" + Num_tel + '\'' +
@@ -77,6 +77,16 @@ public class Client extends Dbhandeler {
                 "email=" + email +
         '}';
     }
+
+
+
+    @Override
+    public String toString() {
+        return nom +" " + prenom;
+
+    }
+
+
 
     public void insert(Client c) {
         try {

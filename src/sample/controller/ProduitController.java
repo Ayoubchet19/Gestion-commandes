@@ -71,6 +71,7 @@ public class ProduitController implements Initializable {
         Quantite.setCellValueFactory(new PropertyValueFactory<>("quantite"));
         Categories.setCellValueFactory(new PropertyValueFactory<>("Libele_cat"));
         Prix.setCellValueFactory(new PropertyValueFactory<>("prix"));
+
       try { Display.setItems(prod.ShowAllProduct()); }
       catch (Exception ex){ System.out.println(ex.toString()); }
 
