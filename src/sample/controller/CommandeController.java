@@ -71,13 +71,26 @@ public class CommandeController implements Initializable {
 
     @FXML
     void modicomm(ActionEvent event) throws IOException {
-        Parent ProductParent= FXMLLoader.load(getClass().getResource("../views/AjoutCommand.fxml"));
-        Scene ProductScene=new Scene(ProductParent);
-        Stage window =(Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(ProductScene);
+
+
+        searchB.getScene().getWindow().hide();
+        FXMLLoader loder=new FXMLLoader();
+        Stage master=new Stage();
+        loder.setLocation(getClass().getResource("../views/AjoutCommand.fxml"));
+        loder.load();
+        Parent root =loder.getRoot();
+        Scene secene=new Scene(root, 1150, 550);
+        master.setTitle("Modifier Commande");
+        AjouterCommandeController m=loder.getController();
         Command c1 = tab_Commandes.getSelectionModel().getSelectedItem();
-        this.id=c1.getId();
-        window.show();
+         c1=c1.searchob(c1.getId()+"");
+        m.setUpdate("Update");
+        m.setcommd(c1);
+       master.centerOnScreen();
+       master.show();
+       master.setScene(secene);
+
+
     }
 
 
@@ -106,7 +119,6 @@ public class CommandeController implements Initializable {
 
 
 
-        //System.out.println(c1.toString());
     }
 
 

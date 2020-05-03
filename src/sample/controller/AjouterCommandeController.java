@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,9 +23,23 @@ import sample.model.Produit;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class AjouterCommandeController implements Initializable {
+    public Command li=null;
+    public void setUpdate(String re){
+      add.setText(re.toString());
+
+    }
+
+
+
+
+
+
+
     @FXML
     private JFXComboBox<Produit> allproduit;
 
@@ -42,14 +57,45 @@ public class AjouterCommandeController implements Initializable {
 
     @FXML
     private JFXTextField adresse;
+    @FXML
+    private JFXButton add;
 
+    public void setcommd(Command c){
+        this.li=c;
+        Client c1 =new Client();
+        Produit p= new Produit();
+        allproduit.setItems(p.Selectproduit(li.id_prod));
+
+
+
+        System.out.println(c1.rechercheroneClient(li.id_client));
+        allClient.setItems(c1.rechercheroneClient(li.id_client));
+
+        allClient.getSelectionModel().select(1);
+
+        quantity.setText(li.getQuantite()+"");
+        adresse.setText(li.getAdresse());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate localDate = LocalDate.parse(li.getDate(), formatter);
+        datech.setValue(localDate);
+
+        status.setValue(li.getStatus());
+
+        allClient.setDisable(true);
+        allClient.getSelectionModel().select(0);
+
+        allproduit.setDisable(true);
+        allproduit.getSelectionModel().select(0);
+
+    }
     @FXML
     void AddCommand(ActionEvent event) {
+        Command C = new Command();
+        if(add.getText()!="Update"){
 
-            Command C = new Command();
             Produit p =allproduit.getSelectionModel().getSelectedItem();
             Client c =allClient.getSelectionModel().getSelectedItem();
-       // System.out.println(p.getId( )+" " +c.getId_client());
             C.setId_client(c.getId_client());
             C.setId_prod(p.getId( ));
             C.setQuantite(Integer.parseInt(quantity.getText()));
@@ -58,6 +104,9 @@ public class AjouterCommandeController implements Initializable {
             C.setStatus(status.getValue());
             C.insert(C);
             //vider();
+            }else {
+            C.Upadate(this.li.id,Integer.parseInt(quantity.getText()),adresse.getText(),status.getValue(),datech.getValue().toString());
+        }
 
 
 
@@ -82,12 +131,19 @@ public class AjouterCommandeController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Produit P=new Produit();
-        Client C=new Client();
-       // allClient.valueProperty().bindBidirectional(C.ShowAllClient().get().prenom);
-        allClient.setItems(C.ShowAllClient());
-        allproduit.setItems(P.ShowAllProduct());
-        status.getItems().addAll("Livre",
-                "En cours","Annule");
+
+              Client C=new Client();
+              allClient.setItems(C.ShowAllClient());
+              Produit P=new Produit();
+              allproduit.setItems(P.ShowAllProduct());
+              status.getItems().addAll("Livre",
+                      "En cours","Annule");
+
+//
+//
+//
+//          }
+
+
     }
 }

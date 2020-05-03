@@ -69,6 +69,33 @@ public class Produit  extends Dbhandeler {
         return Prod;
     }
 
+
+    public ObservableList<Produit> Selectproduit(int id){
+        ObservableList<Produit>Prod= FXCollections.observableArrayList();
+        try{
+            Connection con=this.Connect();
+            PreparedStatement pstm=con.prepareStatement("select * from produit where ProduitId=?");
+            pstm.setInt(1,id);
+           ResultSet rs= pstm.executeQuery();
+            while(rs.next()){
+                Produit P =new Produit();
+                P.setId(rs.getInt("ProduitId"));
+                P.setLibele(rs.getString("Libele"));
+                P.setQuantite(rs.getInt("Quantity"));
+                Prod.add(P);
+            }
+            pstm.close();
+            con.close();
+        }catch (SQLException e){
+            System.out.println(e.getMessage()); }
+        return Prod;
+    }
+
+
+
+
+
+
     public int getId() { return id; }public void setId(int id) {
         this.id = id;
     }

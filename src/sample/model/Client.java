@@ -150,4 +150,29 @@ public class Client extends Dbhandeler {
         return client;
     }
 
+
+    public ObservableList<Client> rechercheroneClient(int id){
+        Client c =new Client();
+        ObservableList<Client>client= FXCollections.observableArrayList();
+        try{
+            Connection con=this.Connect();
+            PreparedStatement stm=con.prepareStatement("SELECT * from client where id_client= ?");
+            stm.setInt(1,id);
+            ResultSet rs=stm.executeQuery();
+            while(rs.next()){
+                c.setId_client(rs.getInt("id_client"));
+                c.setNum_tel(rs.getString("num_tel"));
+                c.setNom(rs.getString("nom"));
+                c.setPrenom(rs.getString("prenom"));
+                c.setSexe(rs.getString("sexe"));
+                c.setEmail(rs.getString("email"));
+                client.add(c);
+            }
+
+            stm.close();
+            con.close();
+        }catch (SQLException e){ System.out.println(e.getMessage()); }
+        return client;
+    }
+
 }

@@ -3,6 +3,7 @@ package sample.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 import sample.assests.helper.Dbhandeler;
 
 import java.sql.*;
@@ -164,19 +165,18 @@ public class Command extends Dbhandeler {
         try{
             Connection con=this.Connect();
             Statement stm=con.createStatement();
-            ResultSet rs=stm.executeQuery("SELECT id_commande,prenom,nom ,ProduitId,Libele,adresse,quantite,statut,date_commande,Prix from commande inner join produit on produit.ProduitId=commande.id_produit\n" +
-                    "INNER join client on idclient=id_client;");
+            ResultSet rs=stm.executeQuery("SELECT id_commande,prenom,nom ,ProduitId,Libele,adresse,quantite,statut,date_commande,Prix from commande inner join produit on ProduitId=id_produit INNER join client on idclient=id_client;");
             while(rs.next()){
                 Command C =new Command();
                 C.setId(rs.getInt("id_commande"));
                 C.setProduit(rs.getString("Libele"));
-               // C.setId_client(rs.getInt("id_client"));
                 C.setAdresse(rs.getString("adresse"));
                 C.setQuantite(rs.getInt("quantite"));
                 C.setStatus(rs.getString("statut"));
                 C.setDate(rs.getString("date_commande"));
                 C.setPrix(rs.getDouble("Prix"));
                 C.setClient(rs.getString("nom")+" "+rs.getString("prenom"));
+                C.setId_prod(rs.getInt("ProduitId"));
                 comm.add(C);
             }
             stm.close();
@@ -214,6 +214,7 @@ public class Command extends Dbhandeler {
                 C.setDate(rs.getString("date_commande"));
                 C.setPrix(rs.getDouble("Prix"));
                 C.setClient(rs.getString("nom")+" "+rs.getString("prenom"));
+                C.setId_prod(rs.getInt("ProduitId"));
                 comm.add(C);
             }
             stm.close();
@@ -233,5 +234,61 @@ public class Command extends Dbhandeler {
             con.close();
         }catch (SQLException e){
             System.out.println(e.getMessage()); }
+    }
+
+
+    public Command searchob(String S){
+        Command C =new Command();
+        try{
+            Connection con=this.Connect();
+            Statement stm=con.createStatement();
+            PreparedStatement pstm=con.prepareStatement("SELECT id_commande,c.prenom,c.nom,idclient ,ProduitId,Libele,adresse,quantite,statut,date_commande,Prix from commande inner join produit on produit.ProduitId=commande.id_produit INNER join client as c on idclient=c.id_client where id_commande = ? or c.prenom=? or c.nom=? or date_commande=?;");
+            int id;
+            try {
+                id=Integer.parseInt(S);
+            }catch (NumberFormatException e){
+                id=0;
+            }
+            pstm.setInt(1, id);
+            pstm.setString(2, S);
+            pstm.setString(3, S);
+            pstm.setString(4, S);
+            ResultSet rs=pstm.executeQuery();
+            while(rs.next()){
+
+                C.setId(rs.getInt("id_commande"));
+                C.setProduit(rs.getString("Libele"));
+                // C.setId_client(rs.getInt("id_client"));
+                C.setAdresse(rs.getString("adresse"));
+                C.setQuantite(rs.getInt("quantite"));
+                C.setStatus(rs.getString("statut"));
+                C.setDate(rs.getString("date_commande"));
+                C.setPrix(rs.getDouble("Prix"));
+                C.setClient(rs.getString("nom")+" "+rs.getString("prenom"));
+                C.setId_prod(rs.getInt("ProduitId"));
+                C.setId_client(rs.getInt("idclient"));
+            }
+            stm.close();
+            con.close();
+        }catch (Exception e){ System.out.println(e.toString()); }
+
+        return C;
+    }
+    //! Upadate
+    public void Upadate(int id, int q, String Adr, String status, String date){
+      try{
+        Connection con=this.Connect();
+        PreparedStatement pstm=con.prepareStatement("update commande set quantite= ?,adresse=?,statut=?,date_commande=? where id_commande=?");
+        pstm.setInt(1,q);
+        pstm.setString(2,Adr);
+        pstm.setString(3,status);
+        pstm.setString(4, date);
+        pstm.setInt(5,id);
+        pstm.executeUpdate();
+        pstm.close();
+        con.close();
+    }catch (SQLException e){
+        System.out.println(e.getMessage());
+      }
     }
 }
