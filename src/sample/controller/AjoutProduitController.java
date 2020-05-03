@@ -14,10 +14,15 @@ import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import sample.model.Categorie;
+import sample.model.Client;
+import sample.model.Command;
 import sample.model.Produit;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class AjoutProduitController implements Initializable {
@@ -41,14 +46,14 @@ public class AjoutProduitController implements Initializable {
 public void vider(){label.clear();quantity.clear();Prix.clear();Category.getSelectionModel().clearSelection();}
     @FXML
     void AddProduct(ActionEvent event) {
-
+    Produit P = new Produit();
     if(label.getText().equals("") || Prix.getText().equals("") || quantity.getText().equals("") || Category.getSelectionModel().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erreur");
             alert.setContentText("Veuillez Remplire les champs vides !!");
             alert.showAndWait();}
-    else {
-            Produit p = new Produit();
+    else if(add.getText()!="Update") {
+          Produit p = new Produit();
             p.setLibele(label.getText());
             p.setQuantite(Integer.parseInt(quantity.getText()));
             p.setPrix(Double.parseDouble(Prix.getText()));
@@ -57,6 +62,11 @@ public void vider(){label.clear();quantity.clear();Prix.clear();Category.getSele
             p.insert(p);
             vider();
         }
+    else {
+        P.Upadate(this.li.id,label.getText(),Integer.parseInt(quantity.getText()),Double.parseDouble(Prix.getText()));
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);alert.setHeaderText(null);
+        alert.setContentText("Product updated succesfuly ");alert.showAndWait();
+    }
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -70,5 +80,25 @@ public void vider(){label.clear();quantity.clear();Prix.clear();Category.getSele
         Stage window =(Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(ProductScene);
         window.show(); }
+
+    public Produit li=null;
+    public void setUpdate(String re){
+        add.setText(re.toString());
+
+    }
+//* remplir les champs par les valeurs recupereé appartir le produit selectionné
+    public void setcommd(Produit c){
+        this.li=c;
+        Categorie catego= new Categorie();
+        Category.setItems(catego.SelectCate(li.id_cat));
+        //System.out.println(li.id_cat);
+        Category.getSelectionModel().select(0);//par defaut selectionner la ctaégorie trouveé
+        Category.setDisable(true);
+        quantity.setText(li.getQuantite()+"");
+        Prix.setText(li.getPrix()+"");
+        label.setText(li.getLibele());
+
+
+    }
 }
 

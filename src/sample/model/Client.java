@@ -88,22 +88,10 @@ public class Client extends Dbhandeler {
 
 
 
-    public void insert(Client c) {
-        try {
-            Connection con = this.Connect();
-            PreparedStatement pstm = con.prepareStatement("INSERT INTO client(Num_tel,nom,prenom,sexe,email)Values(?,?,?,?,?)");
-            pstm.setString(1, c.getNum_tel());
-            pstm.setString(2, c.getNom());
-            pstm.setString(3, c.getPrenom());
-            pstm.setString(4, c.getSexe());
-            pstm.setString(5, c.getEmail());
-            pstm.executeUpdate();
-            pstm.close();
-            con.close();
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
+    public void insert(Client c) { this.exequery("INSERT INTO client(Num_tel,nom,prenom,sexe,email)Values(?,?,?,?,?)",c.getNum_tel(),c.getNom()
+            ,c.getPrenom(),c.getSexe(),c.getEmail());}
+
+
 
     public ObservableList<Client> ShowAllClient(){
         ObservableList<Client>client= FXCollections.observableArrayList();

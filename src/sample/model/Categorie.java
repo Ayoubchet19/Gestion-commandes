@@ -45,6 +45,28 @@ public class Categorie extends Dbhandeler {
         return Categ;
     }
 
+    public ObservableList<Categorie> SelectCate(int idc){
+        ObservableList<Categorie>cat1= FXCollections.observableArrayList();
+        try{
+            Connection con=this.Connect();
+            PreparedStatement pstm=con.prepareStatement("select * from Categorie where CatId=?");
+            pstm.setInt(1,idc);
+            ResultSet rs= pstm.executeQuery();
+            while(rs.next()){
+                Categorie c1 =new Categorie();
+                c1.setId(rs.getInt("CatId"));
+                c1.setLibele(rs.getString("LibeleCat"));
+                cat1.add(c1);
+            }
+            pstm.close();
+            con.close();
+        }catch (SQLException e){
+            System.out.println(e.getMessage()); }
+        return cat1;
+
+    }
+
+
     public int getId() {
         return id;
     }

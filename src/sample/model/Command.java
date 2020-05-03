@@ -21,19 +21,7 @@ public class Command extends Dbhandeler {
          public  int id_prod;
          public int id_client;
          public String date;
-    public Command(int id, String client, String produit, String adresse,String status, double prix, int quantite,String date, int total, int id_prod, int id_client) {
-        this.id = id;
-        this.client = client;
-        this.produit = produit;
-        this.adresse = adresse;
-        this.prix = prix;
-        this.quantite = quantite;
-        this.total = total;
-        this.id_prod = id_prod;
-        this.id_client = id_client;
-        this.status = status;
-        this.date = date;
-    }
+
 
     public String getDate() {
         return date;
@@ -190,7 +178,7 @@ public class Command extends Dbhandeler {
         try{
             Connection con=this.Connect();
             Statement stm=con.createStatement();
-            PreparedStatement pstm=con.prepareStatement("SELECT id_commande,c.prenom,c.nom ,ProduitId,Libele,adresse,quantite,statut,date_commande,Prix from commande inner join produit on produit.ProduitId=commande.id_produit INNER join client as c on idclient=c.id_client where id_commande = ? or c.prenom=? or c.nom=? or date_commande=?;");
+            PreparedStatement pstm=con.prepareStatement("SELECT id_commande,c.prenom,c.nom ,ProduitId,Libele,adresse,quantite,statut,date_commande,Prix from commande inner join produit on produit.ProduitId=commande.id_produit INNER join client as c on idclient=c.id_client where id_commande = ? or c.prenom=? or c.nom=? or date_commande=? or  Libele=? or statut=?;");
         int id;
          try {
              id=Integer.parseInt(S);
@@ -202,6 +190,8 @@ public class Command extends Dbhandeler {
             pstm.setString(2, S);
             pstm.setString(3, S);
             pstm.setString(4, S);
+            pstm.setString(5, S);
+            pstm.setString(6, S);
             ResultSet rs=pstm.executeQuery();
             while(rs.next()){
                 Command C =new Command();
@@ -242,7 +232,7 @@ public class Command extends Dbhandeler {
         try{
             Connection con=this.Connect();
             Statement stm=con.createStatement();
-            PreparedStatement pstm=con.prepareStatement("SELECT id_commande,c.prenom,c.nom,idclient ,ProduitId,Libele,adresse,quantite,statut,date_commande,Prix from commande inner join produit on produit.ProduitId=commande.id_produit INNER join client as c on idclient=c.id_client where id_commande = ? or c.prenom=? or c.nom=? or date_commande=?;");
+            PreparedStatement pstm=con.prepareStatement("SELECT id_commande,c.prenom,c.nom,idclient ,ProduitId,Libele,adresse,quantite,statut,date_commande,Prix from commande inner join produit on produit.ProduitId=commande.id_produit INNER join client as c on idclient=c.id_client where id_commande = ? or c.prenom=? or c.nom=? or date_commande=?  ;");
             int id;
             try {
                 id=Integer.parseInt(S);
@@ -253,6 +243,7 @@ public class Command extends Dbhandeler {
             pstm.setString(2, S);
             pstm.setString(3, S);
             pstm.setString(4, S);
+
             ResultSet rs=pstm.executeQuery();
             while(rs.next()){
 

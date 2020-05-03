@@ -112,13 +112,9 @@ public class CommandeController implements Initializable {
     @FXML
     void supcom(ActionEvent event) {
         //Command c1=new Command();
-
             Command c1 = tab_Commandes.getSelectionModel().getSelectedItem();
             c1.SupprimerComm(c1.getId());
             tab_Commandes.setItems(C.ShowAllcommand());
-
-
-
     }
 
 

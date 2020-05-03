@@ -20,47 +20,24 @@ public class Produit  extends Dbhandeler {
     public Double getPrix() { return prix; }public void setPrix(Double prix) { this.prix = prix; }
     public Produit() { }
 
-
-    public void insert(Produit p){
-        try{
-            Connection con=this.Connect();
-            PreparedStatement pstm=con.prepareStatement("INSERT INTO produit(Libele,Quantity,CategorieId,Prix)Values(?,?,?,?)");
-            pstm.setString(1,p.getLibele());
-            pstm.setInt(2,p.getQuantite());
-            pstm.setInt(3,p.getId_cat());
-            pstm.setDouble(4,p.getPrix());
-            pstm.executeUpdate();
-            pstm.close();
-            con.close();
-        }catch (SQLException e){
-            System.out.println(e.getMessage());
-        }
-
-    }
-    public void SupprimerProd(int id){
-        try{
-            Connection con=this.Connect();
-            PreparedStatement pstm=con.prepareStatement("delete from produit where ProduitId=?");
-            pstm.setInt(1,id);
-            pstm.executeUpdate();
-            pstm.close();
-            con.close();
-        }catch (SQLException e){
-            System.out.println(e.getMessage()); }
-    }
+//!l'utulisation de la methode exequery()
+    public void insert(Produit p){ this.exequery("INSERT INTO produit(Libele,Quantity,CategorieId,Prix)Values(?,?,?,?)",p.getLibele(),p.getQuantite(),p.getId_cat(),p.getPrix()); }
+    public void SupprimerProd(int id){this.exequery("delete from produit where ProduitId=?",id); }
     public ObservableList<Produit> ShowAllProduct(){
         ObservableList<Produit>Prod= FXCollections.observableArrayList();
         try{
             Connection con=this.Connect();
             Statement stm=con.createStatement();
-            ResultSet rs=stm.executeQuery("SELECT ProduitId,Libele,Quantity,LibeleCat,Prix from produit inner join Categorie on Categorie.CatId=produit.CategorieId");
+            ResultSet rs=stm.executeQuery("SELECT ProduitId,CategorieId,Libele,Quantity,LibeleCat,Prix from produit inner join Categorie on produit.CategorieId=Categorie.CatId");
             while(rs.next()){
                 Produit P =new Produit();
                 P.setId(rs.getInt("ProduitId"));
                 P.setLibele(rs.getString("Libele"));
                 P.setQuantite(rs.getInt("Quantity"));
                 P.setLibele_cat(rs.getString("LibeleCat"));
+                P.setId_cat(rs.getInt("CategorieId"));
                 P.setPrix(rs.getDouble("Prix"));
+
                 Prod.add(P);
             }
             stm.close();
@@ -69,7 +46,36 @@ public class Produit  extends Dbhandeler {
         return Prod;
     }
 
+    public Produit searchob(int id){
+        Produit P =new Produit();
+        try{
+            Connection con=this.Connect();
+            Statement stm=con.createStatement();
+            PreparedStatement pstm=con.prepareStatement("SELECT ProduitId,CategorieId,Libele,Quantity,LibeleCat,Prix from produit inner join Categorie on Categorie.CatId=produit.CategorieId where ProduitId=?  ");
+            //int id;
+          /*  try {
+                id=Integer.parseInt(S);
+            }catch (NumberFormatException e){
+                id=0;
+            }*/
+            pstm.setInt(1, id);
 
+            ResultSet rs=pstm.executeQuery();
+            while(rs.next()){
+                P.setId(rs.getInt("ProduitId"));
+                P.setLibele(rs.getString("Libele"));
+                P.setQuantite(rs.getInt("Quantity"));
+                P.setLibele_cat(rs.getString("LibeleCat"));
+                P.setId_cat(rs.getInt("CategorieId"));
+                P.setPrix(rs.getDouble("Prix"));
+
+            }
+            stm.close();
+            con.close();
+        }catch (Exception e){ System.out.println(e.toString()); }
+
+        return P;
+    }
     public ObservableList<Produit> Selectproduit(int id){
         ObservableList<Produit>Prod= FXCollections.observableArrayList();
         try{
@@ -82,6 +88,8 @@ public class Produit  extends Dbhandeler {
                 P.setId(rs.getInt("ProduitId"));
                 P.setLibele(rs.getString("Libele"));
                 P.setQuantite(rs.getInt("Quantity"));
+                P.setId_cat(rs.getInt("CategorieId"));
+                P.setPrix(rs.getDouble("Prix"));
                 Prod.add(P);
             }
             pstm.close();
@@ -91,9 +99,42 @@ public class Produit  extends Dbhandeler {
         return Prod;
     }
 
+    public ObservableList<Produit> SearchMulti(String S){
+        ObservableList<Produit>prod= FXCollections.observableArrayList();
+        try{
+            Connection con=this.Connect();
+            Statement stm=con.createStatement();
+            PreparedStatement pstm=con.prepareStatement("SELECT ProduitId,CategorieId,Libele,Quantity,LibeleCat,Prix from produit inner join Categorie on Categorie.CatId=produit.CategorieId where ProduitId=? or Libele=? or Quantity=? or LibeleCat=? or Prix=? ");
+            int id;
+            try {
+                id=Integer.parseInt(S);
 
+            }catch (NumberFormatException e){
+                id=0;
+            }
+            pstm.setInt(1, id);
+            pstm.setString(2, S);
+            pstm.setString(3, S);
+            pstm.setString(4, S);
+            pstm.setString(5, S);
+            ResultSet rs=pstm.executeQuery();
+            while(rs.next()){
+                Produit P =new Produit();
+                P.setId(rs.getInt("ProduitId"));
+                P.setLibele(rs.getString("Libele"));
+                P.setQuantite(rs.getInt("Quantity"));
+                P.setLibele_cat(rs.getString("LibeleCat"));
+                P.setId_cat(rs.getInt("CategorieId"));
+                P.setPrix(rs.getDouble("Prix"));
+                prod.add(P);
+            }
+            stm.close();
+            con.close();
+        }catch (Exception e){ System.out.println(e.toString()); }
 
-
+        return prod;
+    }
+    public void Upadate(int id, String lib, int qnt, Double Prix){this.exequery("update produit set Libele= ?,Quantity=?,Prix=? where ProduitId=?",id,lib,qnt,Prix); }
 
 
     public int getId() { return id; }public void setId(int id) {
@@ -115,4 +156,6 @@ public class Produit  extends Dbhandeler {
     @Override
     public String toString() {
         return  libele+""; }
+
+
 }

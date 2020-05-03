@@ -33,13 +33,6 @@ public class AjouterCommandeController implements Initializable {
       add.setText(re.toString());
 
     }
-
-
-
-
-
-
-
     @FXML
     private JFXComboBox<Produit> allproduit;
 
@@ -65,10 +58,7 @@ public class AjouterCommandeController implements Initializable {
         Client c1 =new Client();
         Produit p= new Produit();
         allproduit.setItems(p.Selectproduit(li.id_prod));
-
-
-
-        System.out.println(c1.rechercheroneClient(li.id_client));
+      // System.out.println(li.id_prod);
         allClient.setItems(c1.rechercheroneClient(li.id_client));
 
         allClient.getSelectionModel().select(1);
