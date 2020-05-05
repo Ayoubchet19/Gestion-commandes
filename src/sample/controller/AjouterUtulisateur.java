@@ -44,11 +44,7 @@ public class AjouterUtulisateur implements Initializable {
 
     @FXML
     void Retour(ActionEvent event) throws IOException {
-        Parent ProductParent= FXMLLoader.load(getClass().getResource("../views/Masterpage.fxml"));
-        Scene ProductScene=new Scene(ProductParent);
-        Stage window =(Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(ProductScene);
-        window.show();
+         email.getScene().getWindow().hide();
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {

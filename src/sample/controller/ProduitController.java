@@ -26,22 +26,26 @@ public class ProduitController implements Initializable {
 
     Produit prod = new Produit();
     @FXML private TableView<Produit> Display;
-
     @FXML private TableColumn<Produit, Integer> ID_Produit;
     @FXML private TableColumn<Produit, String> Libele;
     @FXML private TableColumn<Produit, Integer> Quantite;
     @FXML private TableColumn<Produit, String> Categories;
     @FXML private TableColumn<Produit, Double> Prix;
-    @FXML private Button SearchButton;@FXML private Button Supprimer;@FXML private Button Modifier;
+    @FXML private Button SearchButton;
+    @FXML private Button Supprimer;
+    @FXML private Button Modifier;
    @FXML private JFXTextField search_text;
 
-//AddProd permet de changer la scene actuelle vers la scene d'ajout des produits
     public void  AddProd(ActionEvent event) throws IOException {
-        Parent ProductParent= FXMLLoader.load(getClass().getResource("../views/AjoutProduit.fxml"));
-        Scene ProductScene=new Scene(ProductParent);
-        Stage window =(Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(ProductScene);
-        window.show();
+        Stage master=new Stage();
+        FXMLLoader loder=new FXMLLoader();
+        loder.setLocation(getClass().getResource("../views/AjoutProduit.fxml"));
+        loder.load();
+        Parent root =loder.getRoot();
+        Scene secene=new Scene(root, 800, 550);
+        master.setTitle("Gestion Des Commandes");
+        master.setScene(secene);
+        master.show();
     }
     @FXML
     void Refresh(ActionEvent event){

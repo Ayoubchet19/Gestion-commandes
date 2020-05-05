@@ -16,6 +16,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import sample.assests.helper.Helper;
 import sample.model.Command;
 
 import java.io.IOException;
@@ -24,7 +25,10 @@ import java.util.ResourceBundle;
 
 public class CommandeController implements Initializable {
     private Command C=new Command();
-
+//    public void load(){
+//        System.out.println("test load");
+//        tab_Commandes.setItems(C.ShowAllcommand());
+//    }
     @FXML
     private TableView<Command> tab_Commandes;
 
@@ -71,26 +75,21 @@ public class CommandeController implements Initializable {
 
     @FXML
     void modicomm(ActionEvent event) throws IOException {
-
-
-        searchB.getScene().getWindow().hide();
         FXMLLoader loder=new FXMLLoader();
         Stage master=new Stage();
         loder.setLocation(getClass().getResource("../views/AjoutCommand.fxml"));
         loder.load();
         Parent root =loder.getRoot();
-        Scene secene=new Scene(root, 1150, 550);
+        Scene secene=new Scene(root, 800, 550);
         master.setTitle("Modifier Commande");
         AjouterCommandeController m=loder.getController();
         Command c1 = tab_Commandes.getSelectionModel().getSelectedItem();
-         c1=c1.searchob(c1.getId()+"");
+        c1=c1.searchob(c1.getId()+"");
         m.setUpdate("Update");
         m.setcommd(c1);
-       master.centerOnScreen();
-       master.show();
-       master.setScene(secene);
-
-
+        master.centerOnScreen();
+        master.show();
+        master.setScene(secene);
     }
 
 
@@ -111,26 +110,30 @@ public class CommandeController implements Initializable {
 
     @FXML
     void supcom(ActionEvent event) {
-        //Command c1=new Command();
+
             Command c1 = tab_Commandes.getSelectionModel().getSelectedItem();
             c1.SupprimerComm(c1.getId());
             tab_Commandes.setItems(C.ShowAllcommand());
+
     }
 
 
     @FXML
     void newcommandes(ActionEvent event) throws IOException {
-        Parent ProductParent= FXMLLoader.load(getClass().getResource("../views/AjoutCommand.fxml"));
-        Scene ProductScene=new Scene(ProductParent);
-        Stage window =(Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(ProductScene);
-        window.show();
+        Stage master=new Stage();
+        FXMLLoader loder=new FXMLLoader();
+        loder.setLocation(getClass().getResource("../views/AjoutCommand.fxml"));
+        loder.load();
+        Parent root =loder.getRoot();
+        Scene secene=new Scene(root, 800, 550);
+        master.setTitle("Gestion Des Commandes");
+        master.setScene(secene);
+        master.show();
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         id_commande.setCellValueFactory(new PropertyValueFactory<>("id"));
         client_col.setCellValueFactory(new PropertyValueFactory<>("client"));
         produit_col.setCellValueFactory(new PropertyValueFactory<>("produit"));
@@ -139,11 +142,8 @@ public class CommandeController implements Initializable {
         quantite_col.setCellValueFactory(new PropertyValueFactory<>("quantite"));
         status_col.setCellValueFactory(new PropertyValueFactory<>("status"));
         Date_col.setCellValueFactory(new PropertyValueFactory<>("date"));
-
         modicomm.setVisible(false);
         supcom.setVisible(false);
-
-
         try { tab_Commandes.setItems(C.ShowAllcommand());}
          catch (Exception ex){ System.out.println(ex.toString()); }
     }

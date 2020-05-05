@@ -66,11 +66,15 @@ public class AfficherClientController implements Initializable {
 
     @FXML
     public void  AddClient(ActionEvent event) throws IOException {
-        Parent ProductParent= FXMLLoader.load(getClass().getResource("../views/AjouterClient.fxml"));
-        Scene ProductScene=new Scene(ProductParent);
-        Stage window =(Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(ProductScene);
-        window.show();
+        Stage master=new Stage();
+        FXMLLoader loder=new FXMLLoader();
+        loder.setLocation(getClass().getResource("../views/AjouterClient.fxml"));
+        loder.load();
+        Parent root =loder.getRoot();
+        Scene secene=new Scene(root, 800, 550);
+        master.setTitle("Gestion Des Commandes");
+        master.setScene(secene);
+        master.show();
     }
 
     @Override

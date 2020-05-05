@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import org.omg.CORBA.WStringSeqHelper;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.util.Optional;
 
 public class Helper {
@@ -37,6 +38,15 @@ public class Helper {
         }
     }
 
+    public void NavRouternoamin (String file, BorderPane pane){
+        try {
+            View = FXMLLoader.load(getClass().getResource("/sample/views/"+file+".fxml"));
+            pane.setCenter(View);
+            pane.getCenter();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
 
     public static void  Exseptiongmsg(String msg){
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -84,8 +94,16 @@ public class Helper {
      }
 
      //? To do
-     public void loadViwe(){
-
+     public void loadViwe(String viwe) throws IOException {
+         Stage master=new Stage();
+         FXMLLoader loder=new FXMLLoader();
+         loder.setLocation(getClass().getResource("../views/AjoutCommand.fxml"));
+         loder.load();
+         Parent root =loder.getRoot();
+         Scene secene=new Scene(root, 800, 550);
+         master.setTitle("Gestion Des Commandes");
+         master.setScene(secene);
+         master.show();
      }
 
 

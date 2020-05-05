@@ -47,8 +47,6 @@ public class AjouterClientController {
 
     @FXML
     void AddProduct(ActionEvent event) {
-
-
             if(num_tel.getText().equals("") || prenom.getText().equals("") || email.getText().equals("") || nom.getText().equals("")){
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Erreur");
@@ -67,11 +65,7 @@ public class AjouterClientController {
     }
         @FXML
         public void  Retour(ActionEvent event) throws IOException {
-            Parent ProductParent= FXMLLoader.load(getClass().getResource("../views/Masterpage.fxml"));
-            Scene ProductScene=new Scene(ProductParent);
-            Stage window =(Stage) ((Node)event.getSource()).getScene().getWindow();
-            window.setScene(ProductScene);
-            window.show();
+           add.getScene().getWindow().hide();
         }
 
 

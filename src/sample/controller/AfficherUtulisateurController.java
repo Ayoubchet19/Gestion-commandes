@@ -40,11 +40,15 @@ public class AfficherUtulisateurController implements Initializable {
     void Refresh(ActionEvent event){ Display.setItems(U.ShowAllUsers()); }
     @FXML
     void Add(ActionEvent event) throws IOException {
-        Parent ProductParent= FXMLLoader.load(getClass().getResource("../views/AjoutUtulisateur.fxml"));
-        Scene ProductScene=new Scene(ProductParent);
-        Stage window =(Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(ProductScene);
-        window.show();
+        Stage master=new Stage();
+        FXMLLoader loder=new FXMLLoader();
+        loder.setLocation(getClass().getResource("../views/AjoutUtulisateur.fxml"));
+        loder.load();
+        Parent root =loder.getRoot();
+        Scene secene=new Scene(root, 800, 550);
+        master.setTitle("Gestion Des Commandes");
+        master.setScene(secene);
+        master.show();
     }
     @FXML
     void DeleteUser(ActionEvent event) {

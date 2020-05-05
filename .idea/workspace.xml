@@ -3,44 +3,42 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/assests/style/css.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/assests/style/css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/CategorieController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/CategorieController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/CategorieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/CategorieController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/AfficherClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/AfficherClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/AfficherUtulisateurs.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/AfficherUtulisateurs.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/AjoutCommand.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/AjoutCommand.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/AjoutProduit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/AjoutProduit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/AjoutUtulisateur.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/AjoutUtulisateur.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/AjouterClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/AjouterClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/Categorie.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/Categorie.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/Client.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/Commande.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/Commande.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/Home.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/Info.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/Info.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/Masterpage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/Masterpage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/Produit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/Produit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/Searchclient.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/Searchcommande.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/Statistique.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/Statistique.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/views/test.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/assests/style/css.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/assests/style/css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/views/AfficherClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/views/AfficherClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/views/AfficherUtulisateurs.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/views/AfficherUtulisateurs.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/views/AjoutCommand.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/views/AjoutCommand.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/views/AjoutProduit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/views/AjoutProduit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/views/AjoutUtulisateur.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/views/AjoutUtulisateur.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/views/AjouterClient.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/views/AjouterClient.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/views/Categorie.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/views/Categorie.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/views/Client.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/views/Commande.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/views/Commande.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/views/Home.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/views/Info.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/views/Info.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/views/Masterpage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/views/Masterpage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/views/Produit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/views/Produit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/views/Searchclient.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/views/Searchcommande.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/views/Statistique.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/views/Statistique.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/views/test.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataBasee.db" beforeDir="false" afterPath="$PROJECT_DIR$/DataBasee.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataBasee.db-pak2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/assests/helper/Helper.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/assests/helper/Helper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/AfficherClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/AfficherClientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/AfficherUtulisateurController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/AfficherUtulisateurController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/AjoutProduitController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/AjoutProduitController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/AjouterClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/AjouterClientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/AjouterCommandeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/AjouterCommandeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/AjouterUtulisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/AjouterUtulisateur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/CommandeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/CommandeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/HomeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/MasterpageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/MasterpageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/ProduitController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/ProduitController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/SearchClientController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/SearchcommandeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/projetjavafx/sample/controller/testController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/assests/helper/Dbhandeler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/assests/helper/Dbhandeler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/assests/helper/Helper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/assests/helper/Helper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controller/AfficherClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/controller/AfficherClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controller/AfficherUtulisateurController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/controller/AfficherUtulisateurController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controller/AjoutProduitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/controller/AjoutProduitController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controller/AjouterClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/controller/AjouterClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controller/AjouterCommandeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/controller/AjouterCommandeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controller/AjouterUtulisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/controller/AjouterUtulisateur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controller/CommandeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/controller/CommandeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controller/HomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controller/MasterpageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/controller/MasterpageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controller/ProduitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/controller/ProduitController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controller/SearchClientController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controller/SearchcommandeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/controller/testController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/model/Utulisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/model/Utulisateur.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,12 +149,12 @@
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="sample.controller" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Adnane\Desktop\projectjavafxfi\javaprojectprivate\src\sample\views" />
-      <recent name="C:\Users\Adnane\Desktop\projetjavafx\src\sample\view" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\root\Desktop\Nouveau dossier\javafxversion0.1-master\src\sample\assests\database" />
+      <recent name="C:\Users\Adnane\Desktop\projetjavafx\src\sample\view" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Adnane\Desktop\projectjavafxfi\javaprojectprivate\src\sample\views" />
       <recent name="C:\Users\Adnane\Desktop\projetjavafx\src\sample\view" />
     </key>
   </component>
@@ -263,9 +261,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="22" key="#Project_Structure/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1587071006243" />
-    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587319137497">
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588698938143">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1588698938143" />
     <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1587319137497" />
     <state x="405" y="174" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588473634006">
       <screen x="0" y="0" width="1280" height="760" />
@@ -287,40 +286,44 @@
       <screen x="0" y="0" width="1280" height="760" />
     </state>
     <state x="299" y="0" key="CommitChangelistDialog2/0.0.1280.760@0.0.1280.760" timestamp="1588635130189" />
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1588703657004">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1588703657004" />
     <state x="389" y="106" key="FileChooserDialogImpl" timestamp="1588115925818">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="389" y="105" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1680.1010@0.0.1366.728" timestamp="1586548336174" />
     <state x="389" y="106" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1588115925818" />
-    <state width="1323" height="201" key="GridCell.Tab.0.bottom" timestamp="1588695155798">
+    <state width="1323" height="138" key="GridCell.Tab.0.bottom" timestamp="1588715879452">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="374" key="GridCell.Tab.0.bottom/0.0.1280.760@0.0.1280.760" timestamp="1588646220679" />
-    <state width="1306" height="199" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1588465064825" />
+    <state width="1323" height="138" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1588715879452" />
     <state width="1323" height="201" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1680.1010@0.0.1366.728" timestamp="1588695155798" />
     <state width="1306" height="136" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588468945798" />
     <state width="1323" height="69" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1588123506669" />
-    <state width="1323" height="201" key="GridCell.Tab.0.center" timestamp="1588695155798">
+    <state width="1323" height="138" key="GridCell.Tab.0.center" timestamp="1588715879451">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="374" key="GridCell.Tab.0.center/0.0.1280.760@0.0.1280.760" timestamp="1588646220679" />
-    <state width="1306" height="199" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1588465064824" />
+    <state width="1323" height="138" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1588715879451" />
     <state width="1323" height="201" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1680.1010@0.0.1366.728" timestamp="1588695155798" />
     <state width="1306" height="136" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1588468945797" />
     <state width="1323" height="69" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1588123506668" />
-    <state width="1323" height="201" key="GridCell.Tab.0.left" timestamp="1588695155797">
+    <state width="1323" height="138" key="GridCell.Tab.0.left" timestamp="1588715879451">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="374" key="GridCell.Tab.0.left/0.0.1280.760@0.0.1280.760" timestamp="1588646220679" />
-    <state width="1306" height="199" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1588465064824" />
+    <state width="1323" height="138" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1588715879451" />
     <state width="1323" height="201" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1680.1010@0.0.1366.728" timestamp="1588695155797" />
     <state width="1306" height="136" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1588468945797" />
     <state width="1323" height="69" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1588123506668" />
-    <state width="1323" height="201" key="GridCell.Tab.0.right" timestamp="1588695155798">
+    <state width="1323" height="138" key="GridCell.Tab.0.right" timestamp="1588715879451">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="374" key="GridCell.Tab.0.right/0.0.1280.760@0.0.1280.760" timestamp="1588646220679" />
-    <state width="1306" height="199" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1588465064825" />
+    <state width="1323" height="138" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1588715879451" />
     <state width="1323" height="201" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1680.1010@0.0.1366.728" timestamp="1588695155798" />
     <state width="1306" height="136" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1588468945798" />
     <state width="1323" height="69" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1588123506669" />
@@ -366,11 +369,11 @@
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1588445330741" />
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728/1366.0.1680.1010@0.0.1366.728" timestamp="1588378026925" />
-    <state x="324" y="51" width="672" height="708" key="search.everywhere.popup" timestamp="1588636933161">
-      <screen x="0" y="0" width="1280" height="760" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1588699552278">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="324" y="51" width="672" height="708" key="search.everywhere.popup/0.0.1280.760@0.0.1280.760" timestamp="1588636933161" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1587438207188" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1588699552278" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/projetjavafx$Main.ic" NAME="Main Coverage Results" MODIFIED="1587128925750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

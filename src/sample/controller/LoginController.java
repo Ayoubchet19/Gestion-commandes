@@ -54,7 +54,7 @@ public class LoginController extends Utulisateur implements Initializable  {
                      loder.setLocation(getClass().getResource("../views/Masterpage.fxml"));
                      loder.load();
                      Parent root =loder.getRoot();
-                     Scene secene=new Scene(root, 1150, 550);
+                     Scene secene=new Scene(root, 1237, 592);
                      master.setTitle("Gestion Des Commandes");
                      MasterpageController m=loder.getController();
                      m.setname(email.getText().toString().trim());

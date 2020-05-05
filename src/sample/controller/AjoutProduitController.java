@@ -30,8 +30,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 
 public class AjoutProduitController implements Initializable {
-
-
     @FXML
     JFXTextField label;
     @FXML
@@ -80,12 +78,8 @@ public void vider(){label.clear();quantity.clear();Prix.clear();Category.getSele
     }
 
     public void  Retour(ActionEvent event) throws IOException {
-        Parent ProductParent= FXMLLoader.load(getClass().getResource("../views/MasterPage.fxml"));
-        Scene ProductScene=new Scene(ProductParent);
-        Stage window =(Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(ProductScene);
-        window.show(); }
-
+        retour.getScene().getWindow().hide();
+         }
     public Produit li=null;
     public void setUpdate(String re){ add.setText(re.toString()); }
     public void setVisibilite(Boolean b){ Annuler.setVisible(b); }//Cacher le button Annuler l'ors de Modificattion

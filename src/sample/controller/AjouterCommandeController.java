@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import sample.assests.helper.Helper;
 import sample.model.Categorie;
@@ -29,10 +30,11 @@ import java.util.ResourceBundle;
 
 public class AjouterCommandeController implements Initializable {
     public Command li=null;
+
     public void setUpdate(String re){
       add.setText(re.toString());
-
     }
+
     @FXML
     private JFXComboBox<Produit> allproduit;
 
@@ -52,29 +54,24 @@ public class AjouterCommandeController implements Initializable {
     private JFXTextField adresse;
     @FXML
     private JFXButton add;
+    @FXML
+    private JFXButton retour;
 
     public void setcommd(Command c){
         this.li=c;
         Client c1 =new Client();
         Produit p= new Produit();
         allproduit.setItems(p.Selectproduit(li.id_prod));
-      // System.out.println(li.id_prod);
         allClient.setItems(c1.rechercheroneClient(li.id_client));
-
         allClient.getSelectionModel().select(1);
-
         quantity.setText(li.getQuantite()+"");
         adresse.setText(li.getAdresse());
-
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate localDate = LocalDate.parse(li.getDate(), formatter);
         datech.setValue(localDate);
-
         status.setValue(li.getStatus());
-
         allClient.setDisable(true);
         allClient.getSelectionModel().select(0);
-
         allproduit.setDisable(true);
         allproduit.getSelectionModel().select(0);
 
@@ -98,19 +95,12 @@ public class AjouterCommandeController implements Initializable {
             C.Upadate(this.li.id,Integer.parseInt(quantity.getText()),adresse.getText(),status.getValue(),datech.getValue().toString());
         }
 
-
-
     }
 
     @FXML
     void Retour(ActionEvent event) throws IOException {
-        Helper navl =new Helper();
-        ///navl.NavRouter("Commande",Parent);
-        Parent ProductParent= FXMLLoader.load(getClass().getResource("../views/Commande.fxml"));
-        Scene ProductScene=new Scene(ProductParent);
-        Stage window =(Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(ProductScene);
-        window.show();
+
+        add.getScene().getWindow().hide();
     }
 
     @FXML
@@ -128,11 +118,6 @@ public class AjouterCommandeController implements Initializable {
               allproduit.setItems(P.ShowAllProduct());
               status.getItems().addAll("Livre",
                       "En cours","Annule");
-
-//
-//
-//
-//          }
 
 
     }
