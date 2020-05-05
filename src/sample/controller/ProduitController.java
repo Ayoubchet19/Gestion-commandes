@@ -45,10 +45,7 @@ public class ProduitController implements Initializable {
     }
     @FXML
     void Refresh(ActionEvent event){
-        Display.setItems(prod.ShowAllProduct());
-        Modifier.setVisible(false);
-        Supprimer.setVisible(false);
-    }
+        Display.setItems(prod.ShowAllProduct()); }
 
     @FXML
     void SearchMulti(ActionEvent event) {
@@ -56,10 +53,8 @@ public class ProduitController implements Initializable {
         Produit P1=new Produit();
         if(!search_text.getText().isEmpty()) {
             Display.setItems(P1.SearchMulti(search_text.getText()));
-            Modifier.setVisible(true);
-            Supprimer.setVisible(true);
         }
-        else{ Display.setItems(P1.ShowAllProduct());Modifier.setVisible(false);Supprimer.setVisible(false);
+        else{ Display.setItems(P1.ShowAllProduct());
             Alert alert = new Alert(Alert.AlertType.INFORMATION);alert.setHeaderText(null);
             alert.setContentText("Vueliiez saisir le produit a rechercher !! ");alert.showAndWait();
         }
@@ -67,22 +62,31 @@ public class ProduitController implements Initializable {
 
     @FXML
     void modicomm(ActionEvent event) throws IOException {
-        SearchButton.getScene().getWindow().hide();
-        FXMLLoader loder=new FXMLLoader();
-        Stage master=new Stage();
-        loder.setLocation(getClass().getResource("../views/AjoutProduit.fxml"));
-        loder.load();
-        Parent root =loder.getRoot();
-        Scene secene=new Scene(root, 1150, 550);
-        master.setTitle("Modifier Produit");
-        AjoutProduitController m=loder.getController();
-        Produit c1 = Display.getSelectionModel().getSelectedItem();//Recuperer le produit selectionneé apartir tableview
-        c1=c1.searchob(c1.getId());//Recuperer l'Objet
-        m.setUpdate("Update");//changement de button Enregister vers UPdate
-        m.setcommd(c1);//passer l'objet trouvé vers la mehode setcommd
-        master.centerOnScreen();
-        master.show();
-        master.setScene(secene);
+        if(Display.getSelectionModel().isEmpty()){
+            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);
+            alert1.setContentText("Veuillez Selectionner le produit a Modifier !!");
+            alert1.showAndWait();
+        }
+        else {
+            SearchButton.getScene().getWindow().hide();
+            FXMLLoader loder=new FXMLLoader();
+            Stage master=new Stage();
+            loder.setLocation(getClass().getResource("../views/AjoutProduit.fxml"));
+            loder.load();
+            Parent root =loder.getRoot();
+            Scene secene=new Scene(root, 1150, 550);
+            master.setTitle("Modifier Produit");
+            AjoutProduitController m=loder.getController();
+            Produit c1 = Display.getSelectionModel().getSelectedItem();//Recuperer le produit selectionneé apartir tableview
+            c1=c1.searchob(c1.getId());//Recuperer l'Objet
+            m.setUpdate("Update");//changement de button Enregister vers UPdate
+            m.setcommd(c1);//passer l'objet trouvé vers la mehode setcommd
+            m.setVisibilite(false);
+            master.centerOnScreen();
+            master.show();
+            master.setScene(secene);
+
+        }
 
 
     }
@@ -91,7 +95,7 @@ public class ProduitController implements Initializable {
     void DeleteProduct(ActionEvent event) {
 
         if(Display.getSelectionModel().isEmpty()){
-            Alert alert1 = new Alert(Alert.AlertType.WARNING);
+            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);
             alert1.setContentText("Veuillez Selectionner le produit a supprimer !!");
             alert1.showAndWait();
         }
@@ -118,8 +122,6 @@ public class ProduitController implements Initializable {
 
       try { Display.setItems(prod.ShowAllProduct()); }
       catch (Exception ex){ System.out.println(ex.toString()); }
-        Modifier.setVisible(false);
-        Supprimer.setVisible(false);
 
     }
 

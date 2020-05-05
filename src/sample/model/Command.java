@@ -127,24 +127,8 @@ public class Command extends Dbhandeler {
                 ", id_client=" + id_client +
                 '}';
     }
-    public void insert(Command C){
-        try{
-            Connection con=this.Connect();
-            PreparedStatement pstm=con.prepareStatement("INSERT INTO commande(id_produit,idclient,adresse,quantite,statut,date_commande)Values(?,?,?,?,?,?)");
-           // PreparedStatement pstm=con.ex("INSERT INTO commande(id_produit,idclient,adresse,quantite,statut,date_commande)Values(?,?,?,?,?,?)");
-
-            pstm.setInt(1,C.getId_prod());
-            pstm.setInt(2,C.getId_client());
-            pstm.setString(3,C.getAdresse());
-            pstm.setInt(4,C.getQuantite());
-            pstm.setString(5,C.getStatus());
-            pstm.setString(6,C.getDate());
-            pstm.executeUpdate();
-            pstm.close();
-            con.close();
-        }catch (SQLException e){
-            System.out.println(e.getMessage());
-        }
+    public void insert(Command C){this.exequery("INSERT INTO commande(id_produit,idclient,adresse,quantite,statut,date_commande)Values(?,?,?,?,?,?)",C.getId_prod(),
+            C.getId_client(),C.getAdresse(),C.getQuantite(),C.getStatus(),C.getDate());
 
     }
 
@@ -232,7 +216,7 @@ public class Command extends Dbhandeler {
         try{
             Connection con=this.Connect();
             Statement stm=con.createStatement();
-            PreparedStatement pstm=con.prepareStatement("SELECT id_commande,c.prenom,c.nom,idclient ,ProduitId,Libele,adresse,quantite,statut,date_commande,Prix from commande inner join produit on produit.ProduitId=commande.id_produit INNER join client as c on idclient=c.id_client where id_commande = ? or c.prenom=? or c.nom=? or date_commande=?  ;");
+            PreparedStatement pstm=con.prepareStatement("SELECT id_commande,c.prenom,c.nom,idclient ,ProduitId,Libele,adresse,quantite,statut,date_commande,Prix from commande inner join produit on produit.ProduitId=commande.id_produit INNER join client as c on idclient=c.id_client where id_commande = ?;");
             int id;
             try {
                 id=Integer.parseInt(S);
@@ -240,9 +224,7 @@ public class Command extends Dbhandeler {
                 id=0;
             }
             pstm.setInt(1, id);
-            pstm.setString(2, S);
-            pstm.setString(3, S);
-            pstm.setString(4, S);
+
 
             ResultSet rs=pstm.executeQuery();
             while(rs.next()){

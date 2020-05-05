@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="813.0" stylesheets="@../assests/style/css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.AjouterUtulisateur">
+   <children>
+      <Pane layoutY="-14.0" prefHeight="592.0" prefWidth="813.0">
+         <children>
+            <JFXTextField fx:id="username" labelFloat="true" layoutX="208.0" layoutY="156.0" prefHeight="25.0" prefWidth="308.0" promptText="Username" />
+            <JFXTextField fx:id="email" labelFloat="true" layoutX="208.0" layoutY="246.0" prefHeight="25.0" prefWidth="308.0" promptText="Email" />
+            <JFXButton buttonType="RAISED" layoutX="300.0" layoutY="500.0" onAction="#AddUSer" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #78909c;" text="Enregistrer" textFill="#0c8318">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="417.0" layoutY="500.0" onAction="#vider" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #78909c;" text="Annuler" textFill="#f70000bb">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="24.0" layoutY="38.0" onAction="#Retour" prefHeight="31.0" prefWidth="115.0" style="-fx-background-color: #78909c;" text="Retour" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXPasswordField fx:id="pass" labelFloat="true" layoutX="208.0" layoutY="337.0" prefHeight="25.0" prefWidth="308.0" promptText="Password" />
+            <JFXPasswordField fx:id="ConfirmPass" labelFloat="true" layoutX="208.0" layoutY="416.0" prefHeight="25.0" prefWidth="308.0" promptText="Confimrm Password" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

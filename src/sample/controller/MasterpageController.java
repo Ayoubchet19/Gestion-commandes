@@ -50,12 +50,6 @@ public class MasterpageController implements Initializable {
 
     @FXML
     void RecherClient(ActionEvent event) { navl.NavRouter("AfficherClient",Parent); }
-
-    @FXML
-    void RechercherCommmande(ActionEvent event) {
-        navl.NavRouter("Searchcommande",Parent);
-    }
-
     @FXML
     void Statistique(ActionEvent event) {
         navl.NavRouter("Statistique",Parent);
@@ -65,6 +59,8 @@ public class MasterpageController implements Initializable {
     void Info(ActionEvent event) {
         navl.NavRouter("Info",Parent);
     }
+    @FXML
+    void Settings(ActionEvent event) { navl.NavRouter("AfficherUtulisateurs",Parent);}
 
     public void  Logout(ActionEvent event) throws IOException {
         javafx.scene.Parent ProductParent= FXMLLoader.load(getClass().getResource("../views/login.fxml"));

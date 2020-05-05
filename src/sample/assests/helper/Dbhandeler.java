@@ -1,5 +1,7 @@
 package sample.assests.helper;
 
+import sample.model.Command;
+
 import java.sql.*;
 
 public class Dbhandeler {
@@ -47,6 +49,7 @@ public class Dbhandeler {
         }
         return false;
     }
+
 
 
     public int Count(PreparedStatement pstm){

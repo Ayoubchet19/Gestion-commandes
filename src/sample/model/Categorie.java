@@ -12,18 +12,7 @@ public class Categorie extends Dbhandeler {
     private String libele;
     public Categorie(){}
 
-    public void insert(Categorie C){
-        try{
-            Connection con=this.Connect();
-            PreparedStatement pstm=con.prepareStatement("INSERT INTO Categorie(LibeleCat) Values(?)");
-            pstm.setString(1,C.getLibele());
-            pstm.execute();
-            pstm.close();
-            con.close();
-        }catch (SQLException e){
-            System.out.println(e.getMessage());
-        }
-    }
+    public void insert(Categorie C){this.exequery("INSERT INTO Categorie(LibeleCat) Values(?)",C.getLibele()); }
 
     public ObservableList<Categorie> showCategorie(){
         ObservableList<Categorie>Categ= FXCollections.observableArrayList();

@@ -3,6 +3,10 @@ package sample.controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.validation.RequiredFieldValidator;
+import com.sun.org.apache.xpath.internal.operations.Bool;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -47,11 +51,12 @@ public void vider(){label.clear();quantity.clear();Prix.clear();Category.getSele
     @FXML
     void AddProduct(ActionEvent event) {
     Produit P = new Produit();
-    if(label.getText().equals("") || Prix.getText().equals("") || quantity.getText().equals("") || Category.getSelectionModel().isEmpty()){
+   if(label.getText().equals("") || Prix.getText().equals("") || quantity.getText().equals("") || Category.getSelectionModel().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erreur");
             alert.setContentText("Veuillez Remplire les champs vides !!");
             alert.showAndWait();}
+
     else if(add.getText()!="Update") {
           Produit p = new Produit();
             p.setLibele(label.getText());
@@ -82,10 +87,8 @@ public void vider(){label.clear();quantity.clear();Prix.clear();Category.getSele
         window.show(); }
 
     public Produit li=null;
-    public void setUpdate(String re){
-        add.setText(re.toString());
-
-    }
+    public void setUpdate(String re){ add.setText(re.toString()); }
+    public void setVisibilite(Boolean b){ Annuler.setVisible(b); }//Cacher le button Annuler l'ors de Modificattion
 //* remplir les champs par les valeurs recupereé appartir le produit selectionné
     public void setcommd(Produit c){
         this.li=c;

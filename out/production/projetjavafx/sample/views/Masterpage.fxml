@@ -87,27 +87,6 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="searchccommande" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#RechercherCommmande" prefHeight="47.0" prefWidth="279.0" stylesheets="@../assests/style/css.css" text="Chercher Commande" textFill="WHITE">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <padding>
-                  <Insets left="30.0" />
-               </padding>
-               <font>
-                  <Font size="15.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="35.0" fitWidth="35.0">
-                     <image>
-                        <Image url="@../assests/style/images/icons8-recherche-de-boîte-64.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-               <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" />
-               </VBox.margin>
-            </Button>
             <Button fx:id="produit" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Produit" prefHeight="47.0" prefWidth="280.0" stylesheets="@../assests/style/css.css" text="Produit" textFill="WHITE">
                <opaqueInsets>
                   <Insets />
@@ -172,6 +151,17 @@
                </VBox.margin>
             </Button>
             <Button fx:id="categorie" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#categorie" prefHeight="48.0" prefWidth="228.0" stylesheets="@../assests/style/css.css" text="Categorie" textFill="WHITE">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button  fx:id="Setting" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Settings" prefHeight="51.0" prefWidth="228.0" stylesheets="@../assests/style/css.css" text="Setting" textFill="WHITE">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>

@@ -23,6 +23,7 @@ public class Produit  extends Dbhandeler {
 //!l'utulisation de la methode exequery()
     public void insert(Produit p){ this.exequery("INSERT INTO produit(Libele,Quantity,CategorieId,Prix)Values(?,?,?,?)",p.getLibele(),p.getQuantite(),p.getId_cat(),p.getPrix()); }
     public void SupprimerProd(int id){this.exequery("delete from produit where ProduitId=?",id); }
+    public void Upadate(int id, String lib, int qnt, Double Prix){this.exequery("update produit set Libele= ?,Quantity=?,Prix=? where ProduitId=?",id,lib,qnt,Prix); }
     public ObservableList<Produit> ShowAllProduct(){
         ObservableList<Produit>Prod= FXCollections.observableArrayList();
         try{
@@ -52,14 +53,7 @@ public class Produit  extends Dbhandeler {
             Connection con=this.Connect();
             Statement stm=con.createStatement();
             PreparedStatement pstm=con.prepareStatement("SELECT ProduitId,CategorieId,Libele,Quantity,LibeleCat,Prix from produit inner join Categorie on Categorie.CatId=produit.CategorieId where ProduitId=?  ");
-            //int id;
-          /*  try {
-                id=Integer.parseInt(S);
-            }catch (NumberFormatException e){
-                id=0;
-            }*/
             pstm.setInt(1, id);
-
             ResultSet rs=pstm.executeQuery();
             while(rs.next()){
                 P.setId(rs.getInt("ProduitId"));
@@ -134,7 +128,7 @@ public class Produit  extends Dbhandeler {
 
         return prod;
     }
-    public void Upadate(int id, String lib, int qnt, Double Prix){this.exequery("update produit set Libele= ?,Quantity=?,Prix=? where ProduitId=?",id,lib,qnt,Prix); }
+
 
 
     public int getId() { return id; }public void setId(int id) {
