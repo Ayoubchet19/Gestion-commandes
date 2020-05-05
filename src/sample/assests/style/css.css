@@ -4,20 +4,20 @@
 }
 .vboxx{
 -fx-background-radius : 0px 30px 30px 0px;
--fx-background-image : url('images/vboxbg.jpg');
+-fx-background-image : url('images/images.jpg');
 
 -fx-background-size:cover;
 }
 .button
 {
--fx-background-color :  #008ba3;
+-fx-background-color : #002171;
 -fx-background-radius : 30px;
 
 }
 
 .button:hover
 {
--fx-background-color:#34515f;
+-fx-background-color:#6ec6ff;
 }
 /*.button:pressed
 {

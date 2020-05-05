@@ -17,9 +17,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="813.0" styleClass="ancho" stylesheets="@../assests/style/css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ProduitController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="1009.0" styleClass="ancho" stylesheets="@../assests/style/css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ProduitController">
    <children>
-      <VBox layoutX="4.0" layoutY="140.0" prefHeight="427.0" prefWidth="804.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="140.0">
+      <VBox layoutX="77.0" layoutY="141.0" prefHeight="465.0" prefWidth="855.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="77.0" AnchorPane.rightAnchor="77.0" AnchorPane.topAnchor="141.0">
          <children>
             <GridPane prefHeight="427.0" prefWidth="820.0">
               <columnConstraints>
@@ -33,10 +33,10 @@
                   <TableView fx:id="Display" prefHeight="303.0" prefWidth="1057.0" GridPane.rowIndex="1">
                     <columns>
                       <TableColumn fx:id="ID_Produit" prefWidth="111.0" text="ID_Produit" />
-                      <TableColumn fx:id="Libele" prefWidth="145.0" text="Libele" />
-                        <TableColumn fx:id="Quantite" prefWidth="167.0" text="Quantite" />
-                        <TableColumn fx:id="Categories" prefWidth="146.0" text="Categorie" />
-                        <TableColumn fx:id="Prix" prefWidth="234.0" text="Prix en DH" />
+                      <TableColumn fx:id="Libele" prefWidth="186.99998474121094" text="Libele" />
+                        <TableColumn fx:id="Quantite" prefWidth="177.0" text="Quantite" />
+                        <TableColumn fx:id="Categories" prefWidth="175.0" text="Categorie" />
+                        <TableColumn fx:id="Prix" prefWidth="204.0" text="Prix en DH" />
                     </columns>
                   </TableView>
                   <HBox alignment="CENTER" prefHeight="44.0" prefWidth="833.0" spacing="10.0">
@@ -44,7 +44,7 @@
                         <JFXTextField fx:id="search_text" prefHeight="25.0" prefWidth="157.0" promptText="Search" />
                         <Button fx:id="SearchButton" mnemonicParsing="false" onAction="#SearchMulti" prefHeight="25.0" prefWidth="25.0">
                            <graphic>
-                              <FontAwesomeIconView glyphName="SEARCH" size="14.0" text="" wrappingWidth="17.0" />
+                              <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="14.0" text="" wrappingWidth="17.0" />
                            </graphic>
                         </Button>
                         <Button mnemonicParsing="false" onAction="#AddProd" prefHeight="31.0" prefWidth="167.0" text="Nouveau Produit" textFill="WHITE">
@@ -63,9 +63,9 @@
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button  mnemonicParsing="false" onAction="#Refresh" prefHeight="25.0" prefWidth="31.0">
+                        <Button mnemonicParsing="false" onAction="#Refresh" prefHeight="25.0" prefWidth="31.0">
                            <graphic>
-                              <FontAwesomeIconView glyphName="REFRESH" />
+                              <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" />
                            </graphic>
                         </Button>
                      </children>
@@ -74,13 +74,13 @@
             </GridPane>
          </children>
       </VBox>
-      <Pane layoutY="1.0" prefHeight="115.0" prefWidth="813.0" style="-fx-background-color: #778f9b;" stylesheets="@../assests/style/css.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <Pane prefHeight="115.0" prefWidth="813.0" style="-fx-background-color: #002171;" stylesheets="@../assests/style/css.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Text layoutX="272.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Les produits">
+            <Text layoutX="370.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Les produits">
                <fill>
-                  <LinearGradient endX="1.0" startX="0.42857142857142855" startY="1.0">
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.42857142857142855" startY="1.0">
                      <stops>
-                        <Stop color="#222222" />
+                        <Stop color="#5d5c5c" />
                         <Stop color="#c7e3f2" offset="1.0" />
                      </stops>
                   </LinearGradient>

@@ -17,9 +17,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="813.0" stylesheets="@../assests/style/css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.AfficherUtulisateurController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="1009.0" styleClass="ancho" stylesheets="@../assests/style/css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.AfficherUtulisateurController">
    <children>
-      <VBox layoutX="4.0" layoutY="140.0" prefHeight="427.0" prefWidth="804.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="140.0">
+      <VBox layoutX="119.0" layoutY="135.0" prefHeight="465.0" prefWidth="772.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="119.0" AnchorPane.rightAnchor="118.0" AnchorPane.topAnchor="135.0">
          <children>
             <GridPane prefHeight="427.0" prefWidth="820.0">
               <columnConstraints>
@@ -42,17 +42,17 @@
                         <JFXTextField fx:id="searchFX" prefHeight="25.0" prefWidth="171.0" promptText="search" />
                         <Button fx:id="SearchButton" mnemonicParsing="false" onAction="#Search" prefHeight="25.0" prefWidth="25.0">
                            <graphic>
-                              <FontAwesomeIconView glyphName="SEARCH" size="14.0" text="" wrappingWidth="17.0" />
+                              <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="14.0" text="" wrappingWidth="17.0" />
                            </graphic>
                         </Button>
                         <Button mnemonicParsing="false" onAction="#Refresh" prefHeight="25.0" prefWidth="31.0">
                            <graphic>
-                              <FontAwesomeIconView glyphName="REFRESH" />
+                              <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" />
                            </graphic>
                         </Button>
                         <Button mnemonicParsing="false" onAction="#Add" prefHeight="25.0" prefWidth="31.0">
                            <graphic>
-                              <FontAwesomeIconView glyphName="PLUS" />
+                              <FontAwesomeIconView fill="WHITE" glyphName="PLUS" />
                            </graphic>
                         </Button>
                         <Button mnemonicParsing="false" onAction="#DeleteUser" prefHeight="31.0" prefWidth="181.0" text="Suprimer Utulisateur" textFill="WHITE">
@@ -66,14 +66,14 @@
             </GridPane>
          </children>
       </VBox>
-      <Pane prefHeight="116.0" prefWidth="832.0" style="-fx-background-color: #778f9b;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <Pane prefHeight="116.0" prefWidth="1009.0" style="-fx-background-color: #002171;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Text layoutX="272.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Les Utulisateurs">
+            <Text layoutX="330.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Les Utulisateurs">
                <fill>
-                  <LinearGradient endX="1.0" startX="0.42857142857142855" startY="1.0">
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.42857142857142855" startY="1.0">
                      <stops>
-                        <Stop color="#222222" />
-                        <Stop color="#c7e3f2" offset="1.0" />
+                        <Stop color="#5d5c5c" />
+                        <Stop color="WHITE" offset="1.0" />
                      </stops>
                   </LinearGradient>
                </fill>

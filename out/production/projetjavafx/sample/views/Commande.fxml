@@ -17,9 +17,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="648.0" prefWidth="963.0" styleClass="ancho" stylesheets="@../assests/style/css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.CommandeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="1009.0" styleClass="ancho" stylesheets="@../assests/style/css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.CommandeController">
    <children>
-      <VBox layoutX="4.0" layoutY="140.0" prefHeight="427.0" prefWidth="955.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="140.0">
+      <VBox layoutX="4.0" layoutY="140.0" prefHeight="614.0" prefWidth="963.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="4.0" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="140.0">
          <children>
             <GridPane prefHeight="427.0" prefWidth="930.0">
               <columnConstraints>
@@ -48,7 +48,7 @@
                         <JFXTextField fx:id="search" prefHeight="25.0" prefWidth="174.0" promptText="Search" />
                         <Button fx:id="searchB" mnemonicParsing="false" onAction="#searchB" prefHeight="25.0" prefWidth="25.0">
                            <graphic>
-                              <FontAwesomeIconView glyphName="SEARCH" size="14.0" wrappingWidth="17.0" />
+                              <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="14.0" wrappingWidth="17.0" />
                            </graphic>
                         </Button>
                         <Button fx:id="newcommande" mnemonicParsing="false" onAction="#newcommandes" prefHeight="31.0" prefWidth="191.0" text="Nouvelle Commande " textFill="WHITE">
@@ -57,12 +57,12 @@
                            </font>
 
                         </Button>
-                        <Button fx:id="supcom" mnemonicParsing="false" onAction="#supcom" prefHeight="31.0" prefWidth="191.0" text="Suprimer Commande" textFill="WHITE">
+                        <Button fx:id="modicomm" mnemonicParsing="false" onAction="#modicomm" prefHeight="31.0" prefWidth="191.0" text="Modifier Commande" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Button>
-                        <Button fx:id="modicomm" mnemonicParsing="false" onAction="#modicomm" prefHeight="31.0" prefWidth="191.0" text="Modifier Commande" textFill="WHITE">
+                        <Button fx:id="supcom" mnemonicParsing="false" onAction="#supcom" prefHeight="31.0" prefWidth="191.0" text="Suprimer Commande" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -73,13 +73,13 @@
             </GridPane>
          </children>
       </VBox>
-      <Pane prefHeight="116.0" prefWidth="832.0" style="-fx-background-color: #778f9b;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <Pane prefHeight="116.0" prefWidth="832.0" style="-fx-background-color: #002171;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Text layoutX="228.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Les Commandes">
+            <Text layoutX="326.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Les Commandes">
                <fill>
-                  <LinearGradient endX="1.0" startX="0.42857142857142855" startY="1.0">
+                  <LinearGradient endX="1.0" endY="1.0" startX="0.42857142857142855" startY="1.0">
                      <stops>
-                        <Stop color="#222222" />
+                        <Stop color="#5d5c5c" />
                         <Stop color="#c7e3f2" offset="1.0" />
                      </stops>
                   </LinearGradient>
