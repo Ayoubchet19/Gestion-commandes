@@ -162,13 +162,14 @@ public class Command extends Dbhandeler {
         try{
             Connection con=this.Connect();
             Statement stm=con.createStatement();
-            PreparedStatement pstm=con.prepareStatement("SELECT id_commande,c.prenom,c.nom ,ProduitId,Libele,adresse,quantite,statut,date_commande,Prix from commande inner join produit on produit.ProduitId=commande.id_produit INNER join client as c on idclient=c.id_client where id_commande = ? or c.prenom=? or c.nom=? or date_commande=? or  Libele=? or statut=?;");
-        int id;
+            PreparedStatement pstm=con.prepareStatement("SELECT id_commande,c.prenom,c.nom ,ProduitId,Libele,adresse,quantite,statut,date_commande,Prix from commande inner join produit on produit.ProduitId=commande.id_produit INNER join client as c on idclient=c.id_client where id_commande = ? or c.prenom=? or c.nom=? or date_commande=? or  Libele=? or statut=? or Prix=? or quantite=? ;");
+        int id,qnt;double Prix;
          try {
              id=Integer.parseInt(S);
-
+             qnt=Integer.parseInt(S);
+             Prix=Double.parseDouble(S);
          }catch (NumberFormatException e){
-             id=0;
+             id=qnt=0;Prix=0;
          }
             pstm.setInt(1, id);
             pstm.setString(2, S);
@@ -176,6 +177,8 @@ public class Command extends Dbhandeler {
             pstm.setString(4, S);
             pstm.setString(5, S);
             pstm.setString(6, S);
+            pstm.setDouble(7, Prix);
+            pstm.setInt(8,qnt );
             ResultSet rs=pstm.executeQuery();
             while(rs.next()){
                 Command C =new Command();
@@ -248,20 +251,5 @@ public class Command extends Dbhandeler {
         return C;
     }
     //! Upadate
-    public void Upadate(int id, int q, String Adr, String status, String date){
-      try{
-        Connection con=this.Connect();
-        PreparedStatement pstm=con.prepareStatement("update commande set quantite= ?,adresse=?,statut=?,date_commande=? where id_commande=?");
-        pstm.setInt(1,q);
-        pstm.setString(2,Adr);
-        pstm.setString(3,status);
-        pstm.setString(4, date);
-        pstm.setInt(5,id);
-        pstm.executeUpdate();
-        pstm.close();
-        con.close();
-    }catch (SQLException e){
-        System.out.println(e.getMessage());
-      }
-    }
+    public void Upadate(int id, int q, String Adr, String status, String date){ this.exequery("update commande set quantite= ?,adresse=?,statut=?,date_commande=? where id_commande=?", q,Adr,status,date,id); }
 }

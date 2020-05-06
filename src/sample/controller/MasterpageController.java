@@ -67,35 +67,34 @@ public class MasterpageController implements Initializable {
     private BorderPane Parent;
     @Override
     public void initialize(URL URL, ResourceBundle rb){
-        navl.NavRouter("Commande",Parent);
+        navl.NavRouter("CommandeView/Commande",Parent);
     }
     @FXML
     void Commande(ActionEvent event) {
-        navl.NavRouter("Commande",Parent);
+        navl.NavRouter("CommandeView/Commande",Parent);
     }
     @FXML
-    void Produit(ActionEvent event) { navl.NavRouter("Produit",Parent);}
+    void Produit(ActionEvent event) { navl.NavRouter("ProduitView/Produit",Parent);}
     @FXML
     void categorie(ActionEvent event) {
-        navl.NavRouter("Categorie",Parent);
+        navl.NavRouter("CatégorieView/Categorie",Parent);
     }
 
     @FXML
-    void RecherClient(ActionEvent event) { navl.NavRouter("AfficherClient",Parent); }
+    void RecherClient(ActionEvent event) { navl.NavRouter("ClientView/AfficherClient",Parent); }
     @FXML
     void Statistique(ActionEvent event) {
-        navl.NavRouter("Statistique",Parent);
+        navl.NavRouter("StatistiquesView",Parent);
     }
-
     @FXML
     void Info(ActionEvent event) {
-        navl.NavRouter("Info",Parent);
+        navl.NavRouter("InfoView/Info",Parent);
     }
     @FXML
-    void Settings(ActionEvent event) { navl.NavRouter("AfficherUtulisateurs",Parent);}
+    void Settings(ActionEvent event) { navl.NavRouter("UtulisateurView/AfficherUtulisateurs",Parent);}
 
     public void  Logout(ActionEvent event) throws IOException {
-        javafx.scene.Parent ProductParent= FXMLLoader.load(getClass().getResource("../views/login.fxml"));
+        javafx.scene.Parent ProductParent= FXMLLoader.load(getClass().getResource("../views/UtulisateurView/login.fxml"));
         Scene ProductScene=new Scene(ProductParent);
         Stage window =(Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(ProductScene);
