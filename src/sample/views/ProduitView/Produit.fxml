@@ -74,7 +74,7 @@
             </GridPane>
          </children>
       </VBox>
-      <Pane prefHeight="115.0" prefWidth="813.0" style="-fx-background-color: #002171;" stylesheets="@../../assests/style/css.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <Pane prefHeight="115.0" prefWidth="813.0" style="-fx-background-color: #5471d2;" stylesheets="@../../assests/style/css.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Text layoutX="370.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Les produits">
                <fill>

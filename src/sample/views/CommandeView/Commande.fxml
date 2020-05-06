@@ -78,7 +78,7 @@
             </GridPane>
          </children>
       </VBox>
-      <Pane prefHeight="116.0" prefWidth="832.0" style="-fx-background-color: #002171;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <Pane prefHeight="116.0" prefWidth="832.0" style="-fx-background-color: #5471d2;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Text layoutX="326.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Les Commandes">
                <fill>

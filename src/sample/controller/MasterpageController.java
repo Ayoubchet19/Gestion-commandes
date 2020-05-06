@@ -84,7 +84,7 @@ public class MasterpageController implements Initializable {
     void RecherClient(ActionEvent event) { navl.NavRouter("ClientView/AfficherClient",Parent); }
     @FXML
     void Statistique(ActionEvent event) {
-        navl.NavRouter("StatistiquesView",Parent);
+        navl.NavRouter("StatistiquesView/Statistique",Parent);
     }
     @FXML
     void Info(ActionEvent event) {

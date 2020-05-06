@@ -13,7 +13,7 @@
 <AnchorPane prefHeight="614.0" prefWidth="1009.0" styleClass="ancho" stylesheets="@../../assests/style/css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.CategorieController">
    <children>
       <JFXTextField fx:id="label" layoutX="408.0" layoutY="307.0" prefHeight="31.0" prefWidth="217.0" promptText="Saisir libele categorie" />
-      <JFXButton fx:id="add" buttonType="RAISED" layoutX="505.0" layoutY="371.0" onAction="#Addcat" prefHeight="31.0" prefWidth="99.0" stylesheets="@../../assests/style/css.css" text="Enregistrer" textFill="#0c8318">
+      <JFXButton fx:id="add" buttonType="RAISED" layoutX="505.0" layoutY="371.0" onAction="#Addcat" prefHeight="33.0" prefWidth="105.0" stylesheets="@../../assests/style/css.css" text="Enregistrer" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -23,7 +23,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Pane layoutX="-8.0" prefHeight="116.0" prefWidth="1017.0" style="-fx-background-color: #002171;">
+      <Pane prefHeight="116.0" prefWidth="1017.0" style="-fx-background-color: #5471d2;">
          <children>
             <Text layoutX="360.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Les Categorie">
                <fill>
