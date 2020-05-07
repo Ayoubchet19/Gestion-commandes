@@ -54,7 +54,7 @@
                   <Insets bottom="10.0" left="5.0" right="8.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="searchclient" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#RecherClient" prefHeight="38.0" prefWidth="215.0" stylesheets="@../assests/style/css.css" text="Les Clients" textFill="WHITE">
+            <Button fx:id="searchclient" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#RecherClient" prefHeight="38.0" prefWidth="215.0" stylesheets="@../assests/style/css.css" text="Clients" textFill="WHITE">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>

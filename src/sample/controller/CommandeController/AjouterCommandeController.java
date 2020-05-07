@@ -77,15 +77,17 @@ public class AjouterCommandeController implements Initializable {
         allproduit.getSelectionModel().select(0);
 
     }
-    @FXML
+        @FXML
     void AddCommand(ActionEvent event) {
         Command C = new Command();
-        if(adresse.getText().equals("")||allproduit.getSelectionModel().isEmpty()|| status.getSelectionModel().isEmpty() || quantity.getText().equals("") || allClient.getSelectionModel().isEmpty()){
+        Double qnt_regex= Double.parseDouble(quantity.getText());
+
+            if(adresse.getText().equals("")||allproduit.getSelectionModel().isEmpty()|| status.getSelectionModel().isEmpty() || quantity.getText().equals("") || allClient.getSelectionModel().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erreur");alert.setHeaderText(null);
             alert.setContentText("Veuillez Remplire les champ(s) vide(s) !!");
             alert.showAndWait();}
-        else if(quantity.getText().equals("0")){  Alert alert = new Alert(Alert.AlertType.WARNING);
+        else if  (qnt_regex<=0){  Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erreur");alert.setHeaderText(null);
             alert.setContentText("La quantité ne doit pas etre zéro !!! ");
             alert.showAndWait();}

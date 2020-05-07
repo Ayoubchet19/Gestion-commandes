@@ -17,6 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="614.0" prefWidth="1009.0" styleClass="ancho" stylesheets="@../../assests/style/css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ClientController.AfficherClientController">
    <children>
       <VBox layoutX="72.0" layoutY="135.0" prefHeight="465.0" prefWidth="865.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="72.0" AnchorPane.rightAnchor="72.0" AnchorPane.topAnchor="135.0">
@@ -43,12 +44,33 @@
                   <HBox alignment="CENTER" prefHeight="44.0" prefWidth="833.0" spacing="10.0">
                      <children>
                         <JFXTextField fx:id="searchFX" onAction="#search" prefHeight="25.0" prefWidth="171.0" promptText="search" />
-                        <JFXButton fx:id="rechrche" onAction="#rechercher" prefHeight="29.0" prefWidth="72.0" text="rechrcher" textFill="WHITE" />
-                        <Button mnemonicParsing="false" onAction="#AddClient" prefHeight="31.0" prefWidth="191.0" text="Nouveau Client" textFill="WHITE">
+                        <Button  onAction="#search" prefHeight="25.0" prefWidth="25.0"  textFill="WHITE">
+                            <graphic>
+                                <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="14.0" wrappingWidth="17.0" />
+                            </graphic>
+                        </Button>
+
+
+                         <Button mnemonicParsing="false" onAction="#Refresh" prefHeight="25.0" prefWidth="31.0">
+                             <graphic>
+                                 <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" />
+                             </graphic>
+                         </Button>
+                        <Button mnemonicParsing="false" onAction="#AddClient" prefHeight="33.0" prefWidth="139.0" text="Nouveau Client" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
                           
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#UpdClient" prefHeight="26.0" prefWidth="149.0" text="Modifier Client" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#DelClient" prefHeight="26.0" prefWidth="149.0" text="Supprimer Client" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
                         </Button>
                      </children>
                   </HBox>

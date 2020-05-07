@@ -23,7 +23,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Pane prefHeight="116.0" prefWidth="1017.0" style="-fx-background-color: #5471d2;">
+      <Pane prefHeight="116.0" prefWidth="1009.0" style="-fx-background-color: #5471d2;">
          <children>
             <Text layoutX="360.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Les Categorie">
                <fill>

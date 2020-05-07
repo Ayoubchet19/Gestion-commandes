@@ -9,14 +9,19 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import sample.model.Client;
+import sample.model.Produit;
+
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class AfficherClientController implements Initializable {
@@ -48,19 +53,66 @@ public class AfficherClientController implements Initializable {
     @FXML
     private JFXButton rechrche;
 
+
     @FXML
-    void rechercher(ActionEvent event) {
-        Client c = new Client();
-        Display.setItems(c.rechercherClient(searchFX.getText()));
-        System.out.println("test");
+    void Refresh(ActionEvent event){ Display.setItems(c.ShowAllClient()); }
+    @FXML
+    void search(ActionEvent event) {
+   if(searchFX.getText().isEmpty()){
+       Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);
+       alert1.setContentText("Veuillez saisir le Client a Rechercher !!");
+        alert1.showAndWait();
+    }
+   else {
+       Display.setItems(c.SearchMultiClient(searchFX.getText()));
+   }
+
 
     }
 
     @FXML
-    void search(ActionEvent event) {
+    void DelClient(ActionEvent event) {
+        if(Display.getSelectionModel().isEmpty()){
+            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);
+            alert1.setContentText("Veuillez Selectionner le client a supprimer !!");
+            alert1.showAndWait();
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setContentText("Vous voullez Supprimer cet client ??");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.OK) {
+                Client c = Display.getSelectionModel().getSelectedItem();
+                c.Delete(c.getId_client());
+                Display.setItems(c.ShowAllClient()); }}
+    }
 
+    @FXML
+    void UpdClient(ActionEvent event) throws IOException {
 
-
+        if(Display.getSelectionModel().isEmpty()){
+            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);
+            alert1.setContentText("Veuillez Selectionner le Client a Modifier !!");
+            alert1.showAndWait();
+        }
+        else{
+            FXMLLoader loder=new FXMLLoader();
+            Stage master=new Stage();
+            loder.setLocation(getClass().getResource(  "../../views/ClientView/AjouterClient.fxml"));
+            loder.load();
+            Parent root =loder.getRoot();
+            Scene secene=new Scene(root, 800, 550);
+            master.setTitle("Modifier Client");
+            AjouterClientController m=loder.getController();
+            Client c1 = Display.getSelectionModel().getSelectedItem();
+            c1=c1.SelectClient(c1.getId_client());
+            m.setUpdate("Update");
+            m.setVisibilite(false);
+            m.setclient(c1);
+            master.centerOnScreen();
+            master.show();
+            master.setScene(secene);
+        }
     }
 
 
@@ -91,4 +143,6 @@ public class AfficherClientController implements Initializable {
         catch (Exception ex){ System.out.println(ex.toString()); }
 
     }
+
+
 }

@@ -85,6 +85,7 @@ public class Client extends Dbhandeler {
         return nom +" " + prenom;
 
     }
+    public void Delete(int id){ this.exequery("delete from client where id_client =?",id);}
 
 
 
@@ -139,15 +140,28 @@ public class Client extends Dbhandeler {
     }
 
 
-    public ObservableList<Client> rechercheroneClient(int id){
-        Client c =new Client();
+    public ObservableList<Client> SearchMultiClient(String S){
         ObservableList<Client>client= FXCollections.observableArrayList();
         try{
             Connection con=this.Connect();
-            PreparedStatement stm=con.prepareStatement("SELECT * from client where id_client= ?");
-            stm.setInt(1,id);
-            ResultSet rs=stm.executeQuery();
+            Statement stm=con.createStatement();
+            PreparedStatement pstm=con.prepareStatement("SELECT * from client where id_client=? or  Num_tel=? or  nom=? or prenom=? or  sexe=? or  email=?");
+            int id;
+            try {
+                id=Integer.parseInt(S);
+
+            }catch (NumberFormatException e){
+                id=0;
+            }
+            pstm.setInt(1, id);
+            pstm.setString(2, S);
+            pstm.setString(3, S);
+            pstm.setString(4, S);
+            pstm.setString(5, S);
+            pstm.setString(6, S);
+            ResultSet rs=pstm.executeQuery();
             while(rs.next()){
+                Client c =new Client();
                 c.setId_client(rs.getInt("id_client"));
                 c.setNum_tel(rs.getString("num_tel"));
                 c.setNom(rs.getString("nom"));
@@ -156,11 +170,61 @@ public class Client extends Dbhandeler {
                 c.setEmail(rs.getString("email"));
                 client.add(c);
             }
-
             stm.close();
             con.close();
-        }catch (SQLException e){ System.out.println(e.getMessage()); }
+        }catch (Exception e){ System.out.println(e.toString()); }
+
         return client;
     }
+
+
+
+
+public Client SelectClient(int id ){
+    Client C =new Client();
+    try{
+        Connection con=this.Connect();
+        Statement stm=con.createStatement();
+        PreparedStatement pstm=con.prepareStatement("SELECT * from client where  id_client= ?   ");
+        pstm.setInt(1, id);
+        ResultSet rs=pstm.executeQuery();
+        while(rs.next()){
+            C.setId_client(rs.getInt("id_client"));
+            C.setNum_tel(rs.getString("num_tel"));
+            C.setNom(rs.getString("nom"));
+            C.setPrenom(rs.getString("prenom"));
+            C.setSexe(rs.getString("sexe"));
+            C.setEmail(rs.getString("email"));
+        }
+        stm.close();
+        con.close();
+    }catch (Exception e){ System.out.println(e.toString()); }
+
+    return C;
+}
+public ObservableList<Client> rechercheroneClient(int id){
+    Client c =new Client();
+    ObservableList<Client>client= FXCollections.observableArrayList();
+    try{
+        Connection con=this.Connect();
+        PreparedStatement stm=con.prepareStatement("SELECT * from client where id_client= ?");
+        stm.setInt(1,id);
+        ResultSet rs=stm.executeQuery();
+        while(rs.next()){
+            c.setId_client(rs.getInt("id_client"));
+            c.setNum_tel(rs.getString("num_tel"));
+            c.setNom(rs.getString("nom"));
+            c.setPrenom(rs.getString("prenom"));
+            c.setSexe(rs.getString("sexe"));
+            c.setEmail(rs.getString("email"));
+            client.add(c);
+        }
+
+        stm.close();
+        con.close();
+    }catch (SQLException e){ System.out.println(e.getMessage()); }
+    return client;
+}
+    public void Upadate(int idd, String num_tel, String nom, String prenom, String sexe, String email){ this.exequery("update client  set num_tel= ?,nom=?,prenom=?,sexe=?,email=? where id_client=?", num_tel,nom,prenom,sexe,email,idd); }
 
 }
