@@ -14,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.paint.Paint;
+import sample.assests.helper.Helper;
 import sample.model.Categorie;
 
 
@@ -26,6 +27,7 @@ public class CategorieController implements Initializable {
     JFXTextField label;
     @FXML
     JFXButton add;
+    Helper h=new Helper();
     @FXML
     void Addcat(ActionEvent event) {
 
@@ -35,16 +37,7 @@ public class CategorieController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
        //!VALIDATOR
-        RequiredFieldValidator Validator = new RequiredFieldValidator();
-        label.getValidators().add(Validator);Validator.setMessage("Champ Libele Obligatoir");
-        label.focusedProperty().addListener(new ChangeListener<Boolean>() {
-            @Override
-            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                if(!newValue){ label.validate(); } }});
-
-
-
-
+        h.validator(label);
     }
 
 }

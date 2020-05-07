@@ -25,7 +25,7 @@
       </Label>
       <Pane prefHeight="116.0" prefWidth="1009.0" style="-fx-background-color: #5471d2;">
          <children>
-            <Text layoutX="360.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Les Categorie">
+            <Text layoutX="360.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Les Categories">
                <fill>
                   <LinearGradient endX="1.0" endY="1.0" startX="0.42857142857142855" startY="1.0">
                      <stops>

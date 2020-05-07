@@ -17,7 +17,7 @@ public class Command extends Dbhandeler {
          public String status;
          public double prix;
          public int quantite;
-         public int total;
+         public double total;
          public  int id_prod;
          public int id_client;
          public String date;
@@ -89,11 +89,11 @@ public class Command extends Dbhandeler {
         this.quantite = quantite;
     }
 
-    public int getTotal() {
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(double total) {
         this.total = total;
     }
 
@@ -149,6 +149,7 @@ public class Command extends Dbhandeler {
                 C.setPrix(rs.getDouble("Prix"));
                 C.setClient(rs.getString("nom")+" "+rs.getString("prenom"));
                 C.setId_prod(rs.getInt("ProduitId"));
+                C.setTotal(rs.getDouble("Prix")*rs.getDouble("quantite"));
                 comm.add(C);
             }
             stm.close();
@@ -192,6 +193,7 @@ public class Command extends Dbhandeler {
                 C.setPrix(rs.getDouble("Prix"));
                 C.setClient(rs.getString("nom")+" "+rs.getString("prenom"));
                 C.setId_prod(rs.getInt("ProduitId"));
+                C.setTotal(rs.getDouble("Prix")*rs.getDouble("quantite"));
                 comm.add(C);
             }
             stm.close();
@@ -242,6 +244,7 @@ public class Command extends Dbhandeler {
                 C.setPrix(rs.getDouble("Prix"));
                 C.setClient(rs.getString("nom")+" "+rs.getString("prenom"));
                 C.setId_prod(rs.getInt("ProduitId"));
+                C.setTotal(rs.getDouble("Prix")*rs.getDouble("quantite"));
                 C.setId_client(rs.getInt("idclient"));
             }
             stm.close();

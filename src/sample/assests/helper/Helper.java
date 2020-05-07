@@ -105,7 +105,15 @@ public class Helper {
          master.setScene(secene);
          master.show();
      }
+    public void validator(JFXTextField text){
 
+        RequiredFieldValidator Validator = new RequiredFieldValidator();
+        text.getValidators().add(Validator);Validator.setMessage("Champ Libele Obligatoir");
+        text.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if(!newValue){ text.validate(); } }});
+    }
 
      }
 

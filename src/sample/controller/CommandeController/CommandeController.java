@@ -1,27 +1,23 @@
 package sample.controller.CommandeController;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import sample.assests.helper.Helper;
 import sample.model.Command;
-import sample.model.Produit;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class CommandeController implements Initializable {
     private Command C=new Command();
@@ -56,6 +52,8 @@ public class CommandeController implements Initializable {
     @FXML
     private JFXTextField search;
     @FXML
+    private Label Total;
+    @FXML
     void modicomm(ActionEvent event) throws IOException {
         if(tab_Commandes.getSelectionModel().isEmpty()){
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);
@@ -84,17 +82,23 @@ public class CommandeController implements Initializable {
     }
 
     @FXML
-    void Refresh(ActionEvent event){ tab_Commandes.setItems(C.ShowAllcommand()); }
+    void Refresh(ActionEvent event){ tab_Commandes.setItems(C.ShowAllcommand());
+                          Total.setText("Total Commandes : "+total(C.ShowAllcommand())+" DH");
+                          search.clear();
+    }
 
     @FXML
     void searchB(ActionEvent event) { Command C1=new Command();
         if(!search.getText().isEmpty()) {
         tab_Commandes.setItems(C1.search(search.getText()));
+            Total.setText("Total Commandes : "+total(C1.search(search.getText()))+" DH");
         }
         else {Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);
         alert1.setContentText("Veuillez Selectionner la Commande a Rechercher !!");
         alert1.showAndWait();
-            tab_Commandes.setItems(C.ShowAllcommand()); }
+              tab_Commandes.setItems(C.ShowAllcommand());
+            Total.setText("Total Commandes : "+total(C.ShowAllcommand())+" DH");
+        }
     }
 
     @FXML
@@ -112,6 +116,7 @@ public class CommandeController implements Initializable {
                 Command c1 = tab_Commandes.getSelectionModel().getSelectedItem();
                 c1.SupprimerComm(c1.getId());
                 tab_Commandes.setItems(C.ShowAllcommand());
+                Total.setText("Total Commandes : "+total(C.ShowAllcommand())+" DH");
             }
         }
     }
@@ -142,8 +147,19 @@ public class CommandeController implements Initializable {
         quantite_col.setCellValueFactory(new PropertyValueFactory<>("quantite"));
         status_col.setCellValueFactory(new PropertyValueFactory<>("status"));
         Date_col.setCellValueFactory(new PropertyValueFactory<>("date"));
-        try { tab_Commandes.setItems(C.ShowAllcommand());}
+        total_col.setCellValueFactory(new PropertyValueFactory<>("total"));
+        try { tab_Commandes.setItems(C.ShowAllcommand());
+
+              Total.setText("Total Commandes : "+total(C.ShowAllcommand())+" DH");
+        }
          catch (Exception ex){ System.out.println(ex.toString()); }
+    }
+    private String total(ObservableList<Command> list){
+        AtomicReference<Double> t= new AtomicReference<>(0.0);
+        list.forEach((tab) -> {
+           t.updateAndGet(v -> v + tab.getTotal());
+         });
+        return t+"";
     }
 }
 
