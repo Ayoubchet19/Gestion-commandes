@@ -33,7 +33,7 @@
                   </Text>
                </children>
             </Pane>
-            <Button fx:id="commande" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Commande" prefHeight="38.0" prefWidth="215.0" stylesheets="@../assests/style/css.css" text="Commande" textFill="WHITE">
+            <Button fx:id="commande" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Commande" prefHeight="38.0" prefWidth="215.0" stylesheets="@../assests/style/css.css" text="Les commandes" textFill="WHITE">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -54,7 +54,7 @@
                   <Insets bottom="10.0" left="5.0" right="8.0" top="10.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="searchclient" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#RecherClient" prefHeight="38.0" prefWidth="215.0" stylesheets="@../assests/style/css.css" text="Clients" textFill="WHITE">
+            <Button fx:id="searchclient" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#RecherClient" prefHeight="38.0" prefWidth="215.0" stylesheets="@../assests/style/css.css" text="Les clients" textFill="WHITE">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -75,7 +75,7 @@
                   <Insets bottom="10.0" left="5.0" right="8.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="categorie" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#categorie" prefHeight="38.0" prefWidth="215.0" stylesheets="@../assests/style/css.css" text="Categorie" textFill="WHITE">
+            <Button fx:id="categorie" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#categorie" prefHeight="38.0" prefWidth="215.0" stylesheets="@../assests/style/css.css" text="Catégories" textFill="WHITE">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -96,7 +96,7 @@
                   <Insets bottom="10.0" left="5.0" right="8.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="produit" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Produit" prefHeight="38.0" prefWidth="215.0" stylesheets="@../assests/style/css.css" text="Produit" textFill="WHITE">
+            <Button fx:id="produit" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Produit" prefHeight="38.0" prefWidth="215.0" stylesheets="@../assests/style/css.css" text="Les produits" textFill="WHITE">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -159,7 +159,7 @@
                   <Insets bottom="10.0" left="5.0" right="8.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="Setting" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Settings" prefHeight="38.0" prefWidth="215.0" stylesheets="@../assests/style/css.css" text="Setting" textFill="WHITE">
+            <Button fx:id="Setting" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Settings" prefHeight="38.0" prefWidth="215.0" stylesheets="@../assests/style/css.css" text="Paramètres" textFill="WHITE">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
@@ -180,7 +180,7 @@
                   <Insets bottom="10.0" left="5.0" right="8.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="logout" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Logout" prefHeight="38.0" prefWidth="215.0" stylesheets="@../assests/style/css.css" text="Logout" textFill="WHITE">
+            <Button fx:id="logout" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#Logout" prefHeight="38.0" prefWidth="215.0" stylesheets="@../assests/style/css.css" text="Déconnexion" textFill="WHITE">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
