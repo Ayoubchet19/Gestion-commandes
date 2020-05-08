@@ -67,7 +67,9 @@ public class MasterpageController implements Initializable {
     private BorderPane Parent;
     @Override
     public void initialize(URL URL, ResourceBundle rb){
-        navl.NavRouter("CommandeView/Commande",Parent);
+       // navl.NavRouter("CommandeView/Commande",Parent);
+         navl.NavRouter("ClientView/AfficherClient",Parent);
+        //navl.NavRouter("StatistiqueView/Statistique",Parent);
     }
     @FXML
     void Commande(ActionEvent event) {
@@ -84,7 +86,7 @@ public class MasterpageController implements Initializable {
     void RecherClient(ActionEvent event) { navl.NavRouter("ClientView/AfficherClient",Parent); }
     @FXML
     void Statistique(ActionEvent event) {
-        navl.NavRouter("StatistiquesView/Statistique",Parent);
+        navl.NavRouter("StatistiqueView/Statistique",Parent);
     }
     @FXML
     void Info(ActionEvent event) {

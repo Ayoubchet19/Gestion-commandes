@@ -35,8 +35,10 @@ public class LoginController extends Utulisateur implements Initializable  {
     @FXML
     void login(ActionEvent event) throws IOException {
         String msg="";
-     if(!email.getText().isEmpty()){
-         if(!pass.getText().isEmpty()){
+        email.validate();
+        pass.validate();
+//     if(!email.getText().isEmpty()){
+//         if(!pass.getText().isEmpty()){
              int rep=verfierLogin(email.getText(),pass.getText());
              switch (rep){
                  case 1:
@@ -65,18 +67,20 @@ public class LoginController extends Utulisateur implements Initializable  {
                      break;
              }
 
-         }else
-             msg="Champ Password Obligatoire !";
-
-     }else
-         msg="Champ Email Obligatoire !";
+//         }else
+//             msg="Champ Password Obligatoire !";
+//
+//     }else
+//         msg="Champ Email Obligatoire !";
          if(!msg.isEmpty())
           Helper.Alert(msg);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        Helper h=new Helper();
+        h.validator(email,"Champ Email Obilgatore");
+        h.validator(pass,"Champ Pass Obilgatore");
         email.setStyle("-fx-text-inner-color:white;-fx-prompt-text-fill:white;");
         pass.setStyle("-fx-text-inner-color:white;-fx-prompt-text-fill:white;");
 
@@ -85,7 +89,6 @@ public class LoginController extends Utulisateur implements Initializable  {
 
     @FXML
     void entre(KeyEvent event) throws Exception {
-
     }
 
 }

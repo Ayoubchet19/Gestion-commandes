@@ -2,6 +2,7 @@ package sample.assests.helper;
 
 import animatefx.animation.*;
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.RequiredFieldValidator;
 import javafx.beans.value.ChangeListener;
@@ -105,14 +106,37 @@ public class Helper {
          master.setScene(secene);
          master.show();
      }
-    public void validator(JFXTextField text){
+    public void validator(JFXTextField text, String msg){
 
         RequiredFieldValidator Validator = new RequiredFieldValidator();
-        text.getValidators().add(Validator);Validator.setMessage("Champ Libele Obligatoir");
+        text.getValidators().add(Validator);Validator.setMessage(msg);
         text.focusedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
                 if(!newValue){ text.validate(); } }});
+    }
+
+    public void validator(JFXPasswordField text,String msg){
+        RequiredFieldValidator Validator = new RequiredFieldValidator();
+        text.getValidators().add(Validator);Validator.setMessage(msg);
+        text.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if(!newValue){ text.validate(); } }});
+    }
+
+
+    public void validator(JFXTextField text,String msg, String patren){
+        RequiredFieldValidator Validator = new RequiredFieldValidator();
+        text.getValidators().add(Validator);Validator.setMessage(msg);
+        text.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if(!newValue){
+                    if(text.getText().matches(patren)){
+                        text.validate();
+                    }
+                } }});
     }
 
      }

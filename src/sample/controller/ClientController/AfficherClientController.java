@@ -9,18 +9,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import sample.model.Client;
+import sample.model.Command;
 import sample.model.Produit;
 
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -58,16 +57,14 @@ public class AfficherClientController implements Initializable {
     void Refresh(ActionEvent event){ Display.setItems(c.ShowAllClient()); }
     @FXML
     void search(ActionEvent event) {
-   if(searchFX.getText().isEmpty()){
-       Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);
-       alert1.setContentText("Veuillez saisir le Client a Rechercher !!");
-        alert1.showAndWait();
-    }
-   else {
-       Display.setItems(c.SearchMultiClient(searchFX.getText()));
-   }
+            if(!searchFX.validate()) {
+//                 Display.setItems(c.ShowAllClient());
+                searchFX.validate();
 
 
+   }else
+                Display.setItems(c.SearchMultiClient(searchFX.getText()));
+                searchFX.clear();
     }
 
     @FXML
@@ -79,11 +76,15 @@ public class AfficherClientController implements Initializable {
         }
         else {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setContentText("Vous voullez Supprimer cet client ??");
+            alert.setContentText("Vous voullez Supprimer ??");
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
-                Client c = Display.getSelectionModel().getSelectedItem();
-                c.Delete(c.getId_client());
+                Client c = new Client();
+                ArrayList<Client> l=new ArrayList<>(Display.getSelectionModel().getSelectedItems());
+                for (Client res : l) {
+                    c.Delete(res.getId_client());
+                }
+                //c.Delete(c.getId_client());
                 Display.setItems(c.ShowAllClient()); }}
     }
 
@@ -132,7 +133,7 @@ public class AfficherClientController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        Display.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         ID_Client.setCellValueFactory(new PropertyValueFactory<>("id_client"));
         Telephone.setCellValueFactory(new PropertyValueFactory<>("Num_tel"));
         Nom.setCellValueFactory(new PropertyValueFactory<>("nom"));

@@ -45,17 +45,38 @@ public class AjoutProduitController implements Initializable {
     @FXML
     JFXComboBox<Categorie> Category;
 @FXML
-public void vider(){label.clear();quantity.clear();Prix.clear();Category.getSelectionModel().clearSelection();}
+public void vider(){label.clear();quantity.clear();Prix.clear();Category.getSelectionModel().clearSelection();
+    label.resetValidation();
+    Prix.resetValidation();
+    quantity.resetValidation();
+    Category.resetValidation();
+}
     @FXML
     void AddProduct(ActionEvent event) {
     Produit P = new Produit();
-   if(label.getText().equals("") || Prix.getText().equals("") || quantity.getText().equals("") || Category.getSelectionModel().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Erreur");alert.setHeaderText(null);
-            alert.setContentText("Veuillez Remplire les champs vides !!");
-            alert.showAndWait();}
+    Boolean valid=false;
+        if(label.validate() || Prix.validate()|| quantity.validate() || Category.validate()){
+            int t=0;
+            try {
+                  Integer.parseInt(quantity.getText());
+                  Double.parseDouble(Prix.getText());
+            }catch (NumberFormatException e){
+               t=-1;
+            }
+              if(t==-1) {
+                  valid = false;
+                  Prix.validate();quantity.validate();
+                  label.resetValidation();
+                  Category.resetValidation();
+              }
+              else
+              valid=true;
+            }else{
+            valid=false;
+            label.validate();Prix.validate();quantity.validate();Category.validate();
+            }
 
-    else if(add.getText()!="Update") {
+     if(add.getText()!="Update"&&valid) {
           Produit p = new Produit();
             p.setLibele(label.getText());
             p.setQuantite(Integer.parseInt(quantity.getText()));
@@ -63,14 +84,18 @@ public void vider(){label.clear();quantity.clear();Prix.clear();Category.getSele
             Categorie c = Category.getSelectionModel().getSelectedItem();
             p.setId_cat(c.getId());
             p.insert(p);
-            vider(); Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);
+            vider();
+            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);
        alert1.setContentText("Product Added Succefuly");
        alert1.showAndWait();
+
         }
-    else {
+    else if(add.getText()=="Update"&&valid){
         P.UPdate(this.li.id,label.getText(),Integer.parseInt(quantity.getText()),Double.parseDouble(Prix.getText()));
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);alert.setHeaderText(null);
-        alert.setContentText("Product updated succesfuly ");alert.showAndWait();
+            vider();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);alert.setHeaderText(null);
+          alert.setContentText("Product updated succesfuly ");alert.showAndWait();
+
     }
     }
     @Override
@@ -93,8 +118,6 @@ public void vider(){label.clear();quantity.clear();Prix.clear();Category.getSele
         quantity.setText(li.getQuantite()+"");
         Prix.setText(li.getPrix()+"");
         label.setText(li.getLibele());
-
-
     }
 }
 

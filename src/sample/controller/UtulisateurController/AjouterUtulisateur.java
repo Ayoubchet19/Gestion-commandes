@@ -28,18 +28,35 @@ public class AjouterUtulisateur implements Initializable {
     public void vider(){username.clear();email.clear();pass.clear();ConfirmPass.clear();}
     @FXML
     void AddUSer(ActionEvent event) {
-        if(username.getText().equals("") || email.getText().equals("")||
-                pass.getText().equals("")||ConfirmPass.getText().equals("") ){
-            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);alert1.setContentText("Remplire les champ(s) Vide(s) !!");
-            alert1.showAndWait();
+        Boolean valid=true;
+
+
+        if(!(username.validate() || email.validate()||
+                pass.validate()||ConfirmPass.validate())){
+              valid=false;
+            username.validate(); email.validate();
+            pass.validate();ConfirmPass.validate();
+           pass.clear();
+           ConfirmPass.clear();
         }
-       else if(!pass.getText().equals(ConfirmPass.getText())){Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);alert1.setContentText("Password and Confirm password doesn't match !!");
-            alert1.showAndWait();}
-        else {  Utulisateur u = new Utulisateur();
+    if(!pass.getText().equals(ConfirmPass.getText())){
+          ConfirmPass.activeValidatorProperty();
+        valid=false;
+        pass.clear();
+        ConfirmPass.clear();
+
+       }
+        else if(valid){
+
+            Utulisateur u = new Utulisateur();
             u.setUsername(username.getText());
             u.setEmail(email.getText());
             u.setPass(pass.getText());
-            u.insert(u);vider(); }
+            u.insert(u);vider();
+        Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);
+        alert1.setContentText("User Added Succefuly");
+        alert1.showAndWait();
+        }
     }
 
     @FXML

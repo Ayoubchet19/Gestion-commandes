@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,10 +19,12 @@ import sample.model.Command;
 import sample.model.Produit;
 
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ResourceBundle;
 
-public class AjouterClientController {
+public class AjouterClientController implements Initializable {
 
     @FXML
     private JFXTextField num_tel;
@@ -55,17 +58,55 @@ public class AjouterClientController {
     private  String LibeleSexe;
 
     @FXML
-    public void Vider(){num_tel.clear();nom.clear();prenom.clear();email.clear();homme.setSelected(false);femme.setSelected(false);}
+    public void Vider(){num_tel.clear();nom.clear();prenom.clear();email.clear();homme.setSelected(false);femme.setSelected(false);
+       prenom.resetValidation();
+        email.resetValidation();
+        nom.resetValidation();
+
+    }
     @FXML
     void AddClient(ActionEvent event) {
         Client c = new Client();
-            if(!(homme.isSelected()||femme.isSelected())||num_tel.getText().equals("") || prenom.getText().equals("") || email.getText().equals("") || nom.getText().equals("")){
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Erreur");
-                alert.setContentText("Veuillez Remplire les champs vides !!");
-                alert.showAndWait();}
-            else if(add.getText()!="Update") {
+        boolean valide=true;
+        if(!(num_tel.validate() && prenom.validate() && email.validate() && nom.validate())){valide=false;
+            num_tel.validate(); prenom.validate(); email.validate(); nom.validate();
+//            int t=0;
+//            try {
+//                Integer.parseInt(num_tel.getText());
+//            }catch (NumberFormatException e){
+//                t=-1;
+//            }
+//            if(t==-1) {
+//                valide = false;
+////                prenom.resetValidation();
+////               email.resetValidation();
+////                nom.resetValidation();
+//                num_tel.activeValidatorProperty();
+//            }
+//            else {
+//                valide = true;
+////                num_tel.resetValidation();
+////                prenom.resetValidation();
+////                email.resetValidation();
+////                nom.resetValidation();
+//            }
+          if(!email.getText().matches("(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$)")){
+//              //  prenom.resetValidation();
+                email.validate();
+//              //  nom.resetValidation();
+//               // num_tel.resetValidation();
+       valide = false;
+            }else {
+             valide = true;
+          }
+////            num_tel.resetValidation();
+////            prenom.resetValidation();
+////            email.resetValidation();
+////            nom.resetValidation();
 
+        }
+       else {num_tel.validate(); prenom.validate(); email.validate(); nom.validate(); valide=true;}
+           if(add.getText()!="Update"&& valide) {
                 c.setNum_tel(num_tel.getText());
                 c.setNom(nom.getText());
                 c.setPrenom(prenom.getText());
@@ -74,9 +115,11 @@ public class AjouterClientController {
                 c.setSexe(LibeleSexe);
                 c.setEmail(email.getText());
                 c.insert(c);Vider();
-                Annuler.setVisible(true);
+               Alert alert = new Alert(Alert.AlertType.INFORMATION);alert.setHeaderText(null);
+               alert.setContentText("Client Ajouter succesfuly ");alert.showAndWait();
+//                Annuler.setVisible(true);
             }
-            else {
+            else if(add.getText()=="Update"&& valide) {
                 if(this.sexe.getSelectedToggle().equals(this.homme)){LibeleSexe="Homme";}
                 if(this.sexe.getSelectedToggle().equals(this.femme)){LibeleSexe="Femme";}
                 c.Upadate(this.li.id_client,num_tel.getText(),nom.getText(),prenom.getText(),LibeleSexe,email.getText());
@@ -104,12 +147,6 @@ public class AjouterClientController {
         }
         else{femme.setSelected(true);}
 
-
-
-
-
-
-
     }
     public void setUpdate(String re){
         add.setText(re.toString());
@@ -122,4 +159,8 @@ public class AjouterClientController {
 
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        homme.setSelected(true);
+    }
 }

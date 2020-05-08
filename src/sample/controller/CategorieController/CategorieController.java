@@ -1,4 +1,4 @@
-package sample.controller;
+package sample.controller.CategorieController;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -31,13 +31,20 @@ public class CategorieController implements Initializable {
     @FXML
     void Addcat(ActionEvent event) {
 
-        if(!label.getText().equals("")){ Categorie c = new Categorie();c.setLibele(label.getText());c.insert(c);label.clear();}
+        if(!label.getText().equals("")){ Categorie c = new Categorie();c.setLibele(label.getText());c.insert(c);label.clear();
+            label.resetValidation();
+            Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);
+            alert1.setContentText("Categorie Added Succefuly");
+            alert1.showAndWait();
+
+        }
+        else
+            label.validate();
 }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       //!VALIDATOR
-        h.validator(label);
+
     }
 
 }

@@ -3,6 +3,9 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.validation.IntegerValidator?>
+<?import com.jfoenix.validation.RegexValidator?>
+<?import com.jfoenix.validation.RequiredFieldValidator?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -12,8 +15,22 @@
    <children>
       <Pane prefHeight="592.0" prefWidth="813.0">
          <children>
-            <JFXTextField fx:id="num_tel" labelFloat="true" layoutX="208.0" layoutY="156.0" prefHeight="25.0" prefWidth="308.0" promptText="NumTel" />
-            <JFXTextField fx:id="prenom" labelFloat="true" layoutX="208.0" layoutY="246.0" prefHeight="25.0" prefWidth="308.0" promptText="Prenom" />
+            <JFXTextField fx:id="num_tel" labelFloat="true" layoutX="208.0" layoutY="156.0" prefHeight="25.0" prefWidth="308.0" promptText="NumTel">
+               <validators>
+                  <RequiredFieldValidator message="Veuillez Entrer Un Numero De tel">
+                     <!--                  <FontIcon iconLiteral="fas-exclamation-triangle"/>-->
+                  </RequiredFieldValidator>
+                  <IntegerValidator layoutX="235.0" layoutY="282.0" message="Veuillez Entrer Un Numero De tel Valide" />
+               </validators>
+            </JFXTextField>
+
+            <JFXTextField fx:id="prenom" labelFloat="true" layoutX="208.0" layoutY="246.0" prefHeight="25.0" prefWidth="308.0" promptText="Prenom">
+               <validators>
+                  <RequiredFieldValidator message="Veuillez Entrer Un Prenom">
+                     <!--                  <FontIcon iconLiteral="fas-exclamation-triangle"/>-->
+                  </RequiredFieldValidator>
+               </validators>
+            </JFXTextField>
             <JFXButton fx:id="add" buttonType="RAISED" layoutX="235.0" layoutY="500.0" onAction="#AddClient" prefHeight="33.0" prefWidth="106.0" stylesheets="@../../assests/style/css.css" text="Enregistrer" textFill="#0c8318">
                <font>
                   <Font name="System Bold" size="15.0" />
@@ -29,8 +46,22 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXTextField fx:id="email" labelFloat="true" layoutX="208.0" layoutY="296.0" prefHeight="25.0" prefWidth="308.0" promptText="Email" />
-            <JFXTextField fx:id="nom" labelFloat="true" layoutX="208.0" layoutY="202.0" prefHeight="25.0" prefWidth="308.0" promptText="Nom" />
+            <JFXTextField fx:id="email" labelFloat="true" layoutX="208.0" layoutY="296.0" prefHeight="25.0" prefWidth="308.0" promptText="Email">
+               <validators>
+                  <RequiredFieldValidator message="Veuillez Entrer Un Email">
+                     <!--                  <FontIcon iconLiteral="fas-exclamation-triangle"/>-->
+                  </RequiredFieldValidator>
+                  <RegexValidator message="Veuillez Entrer Un Email Valide" regexPattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"/>
+               </validators>
+            </JFXTextField>
+
+            <JFXTextField fx:id="nom" labelFloat="true" layoutX="208.0" layoutY="202.0" prefHeight="25.0" prefWidth="308.0" promptText="Nom">
+               <validators>
+                  <RequiredFieldValidator message="Veuillez Entrer Un Nom">
+                     <!--                  <FontIcon iconLiteral="fas-exclamation-triangle"/>-->
+                  </RequiredFieldValidator>
+               </validators>
+            </JFXTextField>
             <JFXRadioButton fx:id="homme" layoutX="208.0" layoutY="346.0" text="Homme">
                <toggleGroup>
                   <ToggleGroup fx:id="sexe" />

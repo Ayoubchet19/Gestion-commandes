@@ -19,6 +19,7 @@ import sample.model.Command;
 import sample.model.Produit;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -54,12 +55,12 @@ public class ProduitController implements Initializable {
     void SearchMulti(ActionEvent event) {
 
         Produit P1=new Produit();
-        if(!search_text.getText().isEmpty()) {
-            Display.setItems(P1.SearchMulti(search_text.getText()));
+        if(!search_text.validate()) {
+            search_text.validate();
         }
-        else{ Display.setItems(P1.ShowAllProduct());
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);alert.setHeaderText(null);
-            alert.setContentText("Vueliiez saisir le produit a rechercher !! ");alert.showAndWait();
+        else{
+            Display.setItems(P1.SearchMulti(search_text.getText()));
+            search_text.clear();
         }
     }
 
@@ -103,11 +104,15 @@ public class ProduitController implements Initializable {
         }
         else {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setContentText("Vous voullez Supprimer ce produit ??");
+            alert.setContentText("Vous voullez Supprimer  ??");
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
-                Produit P1 = Display.getSelectionModel().getSelectedItem();
-                P1.SupprimerProd(P1.getId());
+                Produit P1 = new Produit();
+                        //Display.getSelectionModel().getSelectedItem();
+                ArrayList<Produit> l=new ArrayList<>(Display.getSelectionModel().getSelectedItems());
+                for (Produit res : l) {
+                    P1.SupprimerProd(res.getId());
+                }
                 Display.setItems(prod.ShowAllProduct());
             }
 
@@ -116,6 +121,7 @@ public class ProduitController implements Initializable {
 //!!lorsque la scene produit charge ,automatiquement(par defaut)toutes  les donnes  produit sera afficher
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Display.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         ID_Produit.setCellValueFactory(new PropertyValueFactory<>("id"));
         Libele.setCellValueFactory(new PropertyValueFactory<>("libele"));
         Quantite.setCellValueFactory(new PropertyValueFactory<>("quantite"));

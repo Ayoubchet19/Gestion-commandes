@@ -4,6 +4,8 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.validation.IntegerValidator?>
+<?import com.jfoenix.validation.RequiredFieldValidator?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -12,7 +14,14 @@
    <children>
       <Pane prefHeight="592.0" prefWidth="813.0">
          <children>
-            <JFXTextField fx:id="quantity" labelFloat="true" layoutX="208.0" layoutY="257.0" prefHeight="25.0" prefWidth="308.0" promptText="Quantite" />
+            <JFXTextField fx:id="quantity" labelFloat="true" layoutX="208.0" layoutY="257.0" prefHeight="25.0" prefWidth="308.0" promptText="Quantite">
+               <validators>
+                  <RequiredFieldValidator message="Champ Quanity Obligatoire">
+                     <!--                  <FontIcon iconLiteral="fas-exclamation-triangle"/>-->
+                  </RequiredFieldValidator>
+                  <IntegerValidator layoutX="235.0" layoutY="282.0"  message="Champ Quanity Int"/>
+               </validators>
+            </JFXTextField>
             <JFXButton fx:id="add" buttonType="RAISED" layoutX="255.0" layoutY="500.0" onAction="#AddCommand" prefHeight="33.0" prefWidth="115.0" stylesheets="@../../assests/style/css.css" text="Enregistrer" textFill="#0c8318">
                <font>
                   <Font name="System Bold" size="15.0" />
@@ -29,10 +38,34 @@
                </font>
             </JFXButton>
             <JFXComboBox fx:id="status" labelFloat="true" layoutX="208.0" layoutY="353.0" prefHeight="25.0" prefWidth="308.0" promptText="Status" />
-            <JFXDatePicker fx:id="datech" layoutX="277.0" layoutY="416.0" promptText="Date" />
-            <JFXTextField fx:id="adresse" labelFloat="true" layoutX="208.0" layoutY="304.0" prefHeight="25.0" prefWidth="308.0" promptText="Adresse" />
-            <JFXComboBox fx:id="allClient" layoutX="255.0" layoutY="155.0" prefHeight="31.0" prefWidth="189.0" promptText="Client" />
-            <JFXComboBox fx:id="allproduit" layoutX="255.0" layoutY="212.0" prefHeight="13.0" prefWidth="189.0" promptText="Produit" />
+            <JFXDatePicker fx:id="datech" layoutX="277.0" layoutY="416.0" promptText="Date" >
+               <validators>
+                  <RequiredFieldValidator message="Champ Date Obligatoire">
+                     <!--                  <FontIcon iconLiteral="fas-exclamation-triangle"/>-->
+                  </RequiredFieldValidator>
+               </validators>
+            </JFXDatePicker>
+            <JFXTextField fx:id="adresse" labelFloat="true" layoutX="208.0" layoutY="304.0" prefHeight="25.0" prefWidth="308.0" promptText="Adresse">
+               <validators>
+                  <RequiredFieldValidator message="Champ Adresse Obligatoire">
+                     <!--                  <FontIcon iconLiteral="fas-exclamation-triangle"/>-->
+                  </RequiredFieldValidator>
+               </validators>
+            </JFXTextField>
+            <JFXComboBox fx:id="allClient" layoutX="255.0" layoutY="155.0" prefHeight="31.0" prefWidth="189.0" promptText="Client" >
+               <validators>
+                  <RequiredFieldValidator message="Champ Client Obligatoire">
+                     <!--                  <FontIcon iconLiteral="fas-exclamation-triangle"/>-->
+                  </RequiredFieldValidator>
+               </validators>
+            </JFXComboBox>
+            <JFXComboBox fx:id="allproduit" layoutX="255.0" layoutY="212.0" prefHeight="13.0" prefWidth="189.0" promptText="Produit" >
+               <validators>
+               <RequiredFieldValidator message="Champ Produit Obligatoire">
+                  <!--                  <FontIcon iconLiteral="fas-exclamation-triangle"/>-->
+               </RequiredFieldValidator>
+            </validators>
+            </JFXComboBox>
          </children>
       </Pane>
    </children>

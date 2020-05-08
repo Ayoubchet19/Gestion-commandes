@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.validation.RequiredFieldValidator?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
@@ -43,7 +44,13 @@
                   </TableView>
                   <HBox alignment="CENTER" prefHeight="44.0" prefWidth="833.0" spacing="10.0">
                      <children>
-                        <JFXTextField fx:id="search_text" prefHeight="25.0" prefWidth="157.0" promptText="Search" />
+                        <JFXTextField fx:id="search_text" prefHeight="25.0" prefWidth="220.0" promptText="Search">
+                           <validators>
+                              <RequiredFieldValidator message="Veuillez Entrer Un Critère A Rechercher">
+                                 <!--                  <FontIcon iconLiteral="fas-exclamation-triangle"/>-->
+                              </RequiredFieldValidator>
+                           </validators>
+                        </JFXTextField>
                         <Button fx:id="SearchButton" mnemonicParsing="false" onAction="#SearchMulti" prefHeight="25.0" prefWidth="25.0">
                            <graphic>
                               <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="14.0" text="" wrappingWidth="17.0" />

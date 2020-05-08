@@ -9,18 +9,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import sample.assests.helper.Helper;
+import sample.model.Client;
 import sample.model.Produit;
 import sample.model.Utulisateur;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
@@ -54,30 +53,37 @@ public class AfficherUtulisateurController implements Initializable {
     void DeleteUser(ActionEvent event) {
         if(Display.getSelectionModel().isEmpty()){
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);
-            alert1.setContentText("Veuillez Selectionner l'utulisateur a supprimer !!");
+            alert1.setContentText("Veuillez Selectionner l'utulisateur(s) a supprimer !!");
             alert1.showAndWait();
         }
         else {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setContentText("Vous voullez Supprimer ce Utulisateur ??");
+            alert.setContentText("Vous voullez Supprimer  ??");
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
-                Utulisateur U = Display.getSelectionModel().getSelectedItem();
-                U.Delete(U.getIduser());
-                Display.setItems(U.ShowAllUsers()); }}}
+                Utulisateur U = new Utulisateur();
+                //  Display.getSelectionModel().getSelectedItem();
+                ArrayList<Utulisateur> l=new ArrayList<>(Display.getSelectionModel().getSelectedItems());
+                for (Utulisateur res : l) {
+                    U.Delete(res.getIduser());
+                }
+               // U.Delete(U.getIduser());
+                Display.setItems(U.ShowAllUsers());
+            }}}
     @FXML
     void Search(ActionEvent event) {
 
         Utulisateur US=new Utulisateur();
-        if(!searchFX.getText().isEmpty()) {
+
+        if(!searchFX.validate()) {
+            searchFX.validate();
+        }else
             Display.setItems(US.SearchMulti(searchFX.getText()));
-        }
-        else{ Display.setItems(US.ShowAllUsers());
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);alert.setHeaderText(null);
-            alert.setContentText("Vueliiez saisir l'utulisateur a rechercher !! ");alert.showAndWait();
-        }}
+
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Display.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         ID_user.setCellValueFactory(new PropertyValueFactory<>("iduser"));
         Username.setCellValueFactory(new PropertyValueFactory<>("username"));
         Email.setCellValueFactory(new PropertyValueFactory<>("Email"));
