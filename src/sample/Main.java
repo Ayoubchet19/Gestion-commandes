@@ -14,7 +14,7 @@ public class Main extends Application {
        // Parent root = FXMLLoader.load(getClass().getResource("views/Masterpage.fxml"));
         primaryStage.setTitle("Gestion des commandes");
         primaryStage.setScene(new Scene(root));
-        primaryStage.setResizable(false);
+        //primaryStage.setResizable(false);
         //primaryStage.centerOnScreen();
         primaryStage.show();
     }

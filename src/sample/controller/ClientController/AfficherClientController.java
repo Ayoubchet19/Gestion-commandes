@@ -130,7 +130,7 @@ public class AfficherClientController implements Initializable {
         master.setScene(secene);
         master.setResizable(false);
         master.show();
-        System.out.println("hhh");
+        
     }
 
     @Override

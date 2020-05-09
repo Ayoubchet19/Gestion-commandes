@@ -63,7 +63,7 @@ public class LoginController extends Utulisateur implements Initializable  {
                      m.setname(email.getText().toString().trim());
                      master.setScene(secene);
                      master.centerOnScreen();
-                     master.setResizable(false);
+                     //master.setResizable(false);
                      master.show();
                      break;
              }
