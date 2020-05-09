@@ -53,34 +53,30 @@ public void vider(){label.clear();quantity.clear();Prix.clear();Category.getSele
 }
     @FXML
     void AddProduct(ActionEvent event) {
-        Double qnt_regex= Double.parseDouble(quantity.getText());
     Produit P = new Produit();
-    Boolean valid=false;
-        if(label.validate() || Prix.validate()|| quantity.validate() || Category.validate()){
-            int t=0;
-            try {
-                  Integer.parseInt(quantity.getText());
-                  Double.parseDouble(Prix.getText());
-            }catch (NumberFormatException e){
-               t=-1;
-            }
-              if(t==-1) {
-                  valid = false;
-                  Prix.validate();quantity.validate();
-                  label.resetValidation();
-                  Category.resetValidation();
-              } if  (qnt_regex<=0){  Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Erreur");alert.setHeaderText(null);
-                alert.setContentText("La quantité ne doit pas etre inférieur ou egal à zéro !!! ");
-                alert.showAndWait();}
-              else
-              valid=true;
-            }else{
-            valid=false;
-            label.validate();Prix.validate();quantity.validate();Category.validate();
-            }
+    Boolean valid=true;
+        label.resetValidation();
+        Prix.resetValidation();
+        quantity.resetValidation();
+        Category.resetValidation();
+     if(label.getText().isEmpty()||Prix.getText().isEmpty()||quantity.getText().isEmpty()||Category.getSelectionModel().isEmpty()){
+         label.validate();
+         Prix.validate();
+         quantity.validate();
+         Category.validate();
+        valid=false;
+            }else {
+         if (!quantity.getText().matches("^[1-9]\\d*$")) {
+             quantity.validate();
+             valid=false;
+         }
+         if(!Prix.getText().matches("^[1-9]\\d*$")){
+         valid=false;
+         Prix.validate();
+         }
+     }
 
-     if(add.getText()!="Update"&&valid&&qnt_regex>0) {
+     if(add.getText()!="Update"&&valid) {
           Produit p = new Produit();
             p.setLibele(label.getText());
             p.setQuantite(Integer.parseInt(quantity.getText()));

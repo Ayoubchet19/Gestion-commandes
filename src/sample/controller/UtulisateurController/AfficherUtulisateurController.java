@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import sample.assests.helper.Helper;
 import sample.model.Client;
+import sample.model.Command;
 import sample.model.Produit;
 import sample.model.Utulisateur;
 
@@ -76,11 +77,16 @@ public class AfficherUtulisateurController implements Initializable {
     void Search(ActionEvent event) {
 
         Utulisateur US=new Utulisateur();
-
-        if(!searchFX.validate()) {
+         searchFX.resetValidation();
+        if(searchFX.getText().isEmpty()) {
             searchFX.validate();
-        }else
+        }else{
+              if(!US.SearchMulti(searchFX.getText()).isEmpty())
             Display.setItems(US.SearchMulti(searchFX.getText()));
+              else
+                  Helper.Alert("Elément N'existe Pas");
+              searchFX.clear();
+        }
 
     }
     @Override
@@ -91,7 +97,6 @@ public class AfficherUtulisateurController implements Initializable {
         Email.setCellValueFactory(new PropertyValueFactory<>("Email"));
         try { Display.setItems(U.ShowAllUsers()); }
         catch (Exception ex){ System.out.println(ex.toString()); }
-
     }
 }
 

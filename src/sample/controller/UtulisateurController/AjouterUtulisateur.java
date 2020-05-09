@@ -30,23 +30,29 @@ public class AjouterUtulisateur implements Initializable {
     void AddUSer(ActionEvent event) {
         Boolean valid=true;
 
+        username.resetValidation(); email.resetValidation();ConfirmPass.resetValidation();
+        pass.resetValidation();ConfirmPass.resetValidation();pass.resetValidation();
 
-        if(!(username.validate() || email.validate()||
-                pass.validate()||ConfirmPass.validate())){
+        if(username.getText().isEmpty() || email.getText().isEmpty()|| pass.getText().isEmpty()||ConfirmPass.getText().isEmpty()){
               valid=false;
             username.validate(); email.validate();
             pass.validate();ConfirmPass.validate();
            pass.clear();
            ConfirmPass.clear();
-        }
+        }else {
+          if(!email.getText().matches("(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$)")) {
+              email.validate();
+              valid=false;
+          }
+
     if(!pass.getText().equals(ConfirmPass.getText())){
           ConfirmPass.activeValidatorProperty();
         valid=false;
         pass.clear();
         ConfirmPass.clear();
-
        }
-        else if(valid){
+        }
+         if(valid){ //! Ajouter en cas de mod
 
             Utulisateur u = new Utulisateur();
             u.setUsername(username.getText());

@@ -14,6 +14,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import sample.assests.helper.Helper;
 import sample.model.Categorie;
 import sample.model.Command;
 import sample.model.Produit;
@@ -56,20 +57,31 @@ public class ProduitController implements Initializable {
     void SearchMulti(ActionEvent event) {
 
         Produit P1=new Produit();
-        if(!search_text.validate()) {
+        search_text.resetValidation();
+        if(search_text.getText().isEmpty()) {
             search_text.validate();
         }
         else{
-            Display.setItems(P1.SearchMulti(search_text.getText()));
+            if(!P1.SearchMulti(search_text.getText()).isEmpty()){
+            Display.setItems(P1.SearchMulti(search_text.getText()));}
+            else
+                Helper.Alert("Elément N'existe Pas");
+
             search_text.clear();
         }
     }
 
     @FXML
     void modicomm(ActionEvent event) throws IOException {
-        if(Display.getSelectionModel().isEmpty()){
+        int cont=0;
+        ArrayList<Produit> l=new ArrayList<>(Display.getSelectionModel().getSelectedItems());
+        for (Produit res : l) {
+            cont++;
+        }
+
+        if(Display.getSelectionModel().isEmpty()|| cont>1){
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);
-            alert1.setContentText("Veuillez Selectionner le produit a Modifier !!");
+            alert1.setContentText("Veuillez Selectionner Un Produit a Modifier !!");
             alert1.showAndWait();
         }
         else {

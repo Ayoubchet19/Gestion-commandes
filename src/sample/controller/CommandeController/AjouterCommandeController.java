@@ -89,26 +89,29 @@ public class AjouterCommandeController implements Initializable {
     }
         @FXML
     void AddCommand(ActionEvent event) {
-            Double qnt_regex= Double.parseDouble(quantity.getText());
         Command C = new Command();
+            adresse.resetValidation();
+            quantity.resetValidation();
+            allClient.resetValidation();
+            datech.resetValidation();
+            allproduit.resetValidation();
+            status.resetValidation();
           boolean v=false;
-                if(adresse.validate()&&quantity.validate()&&allClient.validate()&&allClient.validate()&&datech.validate()&&allproduit.validate()){
+                if(adresse.getText().isEmpty()||quantity.getText().isEmpty()||allClient.getSelectionModel().isEmpty()||allClient.getSelectionModel().isEmpty()||datech.getValue().toString().isEmpty()||status.getSelectionModel().isEmpty()){
                 v=true;
-            }  if  (qnt_regex<=0){  Alert alert = new Alert(Alert.AlertType.WARNING);
-                    alert.setTitle("Erreur");alert.setHeaderText(null);
-                    alert.setContentText("La quantité ne doit pas etre inférieur ou egal à zéro !!! ");
-                    alert.showAndWait();}
-                else {
-                    adresse.validate();
-                    quantity.validate();
-                    allClient.validate();
-                    allClient.validate();
-                    datech.validate();
-                    allproduit.validate();
+                adresse.validate();
+                quantity.validate();
+                allClient.validate();
+                datech.validate();
+                allproduit.validate();
+                status.validate();
+            }else{
+                if (!quantity.getText().matches("^[1-9]\\d*$")) {
+                       quantity.validate();
+                       v=false;
                 }
-
-        if(add.getText()!="Update"&& v==true&&qnt_regex>0){
-
+            }
+        if(add.getText()!="Update"&& v==false){
             Produit p =allproduit.getSelectionModel().getSelectedItem();
             Client c =allClient.getSelectionModel().getSelectedItem();
               if(p.SelectQunt(p.getId(),Integer.parseInt(quantity.getText()))) {
@@ -132,7 +135,7 @@ public class AjouterCommandeController implements Initializable {
                   alert.showAndWait();
               }
 
-            }else if(add.getText()=="Update"&& v==true) {
+            }else if(add.getText()=="Update"&& v==false) {
             Produit p =allproduit.getSelectionModel().getSelectedItem();
             Client c =allClient.getSelectionModel().getSelectedItem();
             if(p.SelectQunt(p.getId(),Integer.parseInt(quantity.getText()))) {
@@ -158,6 +161,13 @@ public class AjouterCommandeController implements Initializable {
     @FXML
     void vider() {
         allproduit.getSelectionModel().clearSelection();quantity.clear();adresse.clear();allClient.getSelectionModel().clearSelection();status.getSelectionModel().clearSelection();
+        adresse.resetValidation();
+        quantity.resetValidation();
+        allClient.resetValidation();
+        datech.resetValidation();
+        allproduit.resetValidation();
+        status.resetValidation();
+
     }
 
     @Override

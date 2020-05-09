@@ -20,7 +20,8 @@
                   <RequiredFieldValidator message="Veuillez Entrer Un Numero De tel">
                      <!--                  <FontIcon iconLiteral="fas-exclamation-triangle"/>-!-->
                   </RequiredFieldValidator>
-                  <IntegerValidator layoutX="235.0" layoutY="282.0"  message="Num de Tel doit etre Numerique "/>
+<!--                  <IntegerValidator layoutX="235.0" layoutY="282.0"  message="Num de Tel doit etre Numerique "/>-->
+                  <RegexValidator message="Veuillez Entrer Un num Tel Valide" regexPattern="(\+212|0)([ \-_/]*)(\d[ \-_/]*){9}"/>
                </validators>
             </JFXTextField>
 
@@ -60,9 +61,7 @@
             <JFXTextField fx:id="nom" labelFloat="true" layoutX="208.0" layoutY="202.0" prefHeight="25.0" prefWidth="308.0" promptText="Nom">
                <validators>
                   <RequiredFieldValidator message="Veuillez Entrer Un Nom">
-
                   </RequiredFieldValidator>
-                  <RegexValidator message="Veuillez Entrer Un nom string" regexPattern="(^[a-zA-Z])"/>
                </validators>
             </JFXTextField>
             <JFXRadioButton fx:id="homme" layoutX="208.0" layoutY="346.0" text="Homme">

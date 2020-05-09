@@ -35,10 +35,13 @@ public class LoginController extends Utulisateur implements Initializable  {
     @FXML
     void login(ActionEvent event) throws IOException {
         String msg="";
-        email.validate();
+        email.resetValidation();
+        pass.resetValidation();
         pass.validate();
+        email.validate();
 //     if(!email.getText().isEmpty()){
-//         if(!pass.getText().isEmpty()){
+//        if(!pass.getText().isEmpty()){
+        if(!pass.getText().isEmpty()||!email.getText().isEmpty()){
              int rep=verfierLogin(email.getText(),pass.getText());
              switch (rep){
                  case 1:
@@ -66,13 +69,13 @@ public class LoginController extends Utulisateur implements Initializable  {
                      //master.setResizable(false);
                      master.show();
                      break;
-             }
+             }}
 
-//         }else
-//             msg="Champ Password Obligatoire !";
-//
-//     }else
-//         msg="Champ Email Obligatoire !";
+//           }else
+//            pass.validate();
+
+//       }else
+//            email.validate();
          if(!msg.isEmpty())
           Helper.Alert(msg);
     }

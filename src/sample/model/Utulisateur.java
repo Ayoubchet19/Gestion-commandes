@@ -12,7 +12,6 @@ public class Utulisateur extends Dbhandeler {
     public void insert(Utulisateur U){ this.exequery("INSERT INTO User(Username,email,pass)Values(?,?,?)"
             ,U.getUsername(),U.getEmail(),U.getPass()); }
     public void Delete(int id){ this.exequery("delete from User where id =?",id);}
-
     public ObservableList<Utulisateur> ShowAllUsers(){
         ObservableList<Utulisateur>Prod= FXCollections.observableArrayList();
         try{

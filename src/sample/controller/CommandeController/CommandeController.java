@@ -57,9 +57,15 @@ public class CommandeController implements Initializable {
     private Label Total;
     @FXML
     void modicomm(ActionEvent event) throws IOException {
-        if(tab_Commandes.getSelectionModel().isEmpty()){
+       int cont=0;
+        ArrayList<Command> l=new ArrayList<>(tab_Commandes.getSelectionModel().getSelectedItems());
+        for (Command res : l) {
+            cont++;
+        }
+
+        if(tab_Commandes.getSelectionModel().isEmpty()||cont>1){
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);
-            alert1.setContentText("Veuillez Selectionner la Commande a Modifier !!");
+            alert1.setContentText("Veuillez Selectionner Une Commande a Modifier !!");
             alert1.showAndWait();
         }
         else{
@@ -95,22 +101,20 @@ public class CommandeController implements Initializable {
     @FXML
     void searchB(ActionEvent event) {
         Command C1=new Command();
-
-        if(!search.validate()) {
+         search.resetValidation();
+        if(search.getText().isEmpty()) {
             search.validate();
         }else {
+            if(!C1.search(search.getText()).isEmpty()){
             tab_Commandes.setItems(C1.search(search.getText()));
             Total.setText("Total Commandes : "+total(C1.search(search.getText()))+" DH");
             search.clear();
-
+            }else {
+                Helper.Alert("élément n'existe pas");
+            }
+            search.clear();
         }
 
-//        else {Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);
-//        alert1.setContentText("Veuillez Selectionner la Commande a Rechercher !!");
-//        alert1.showAndWait();
-//              tab_Commandes.setItems(C.ShowAllcommand());
-//             Total.setText("Total Commandes : "+total(C.ShowAllcommand())+" DH");
-//        }
     }
 
     @FXML
@@ -133,9 +137,7 @@ public class CommandeController implements Initializable {
                 tab_Commandes.setItems(C.ShowAllcommand());
                 Total.setText("Total Commandes : "+total(C.ShowAllcommand())+" DH");
 
-//                Command c1 = tab_Commandes.getSelectionModel().getSelectedItem();
-//                c1.SupprimerComm(c1.getId());
-//
+
             }
         }
     }

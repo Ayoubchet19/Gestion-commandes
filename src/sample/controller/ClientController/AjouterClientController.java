@@ -58,66 +58,34 @@ public class AjouterClientController implements Initializable {
     private  String LibeleSexe;
 
     @FXML
-    public void Vider(){num_tel.clear();nom.clear();prenom.clear();email.clear();homme.setSelected(false);femme.setSelected(false);
+    public void Vider(){num_tel.clear();nom.clear();prenom.clear();email.clear();femme.setSelected(false);
        prenom.resetValidation();
         email.resetValidation();
         nom.resetValidation();
+        num_tel.resetValidation();
 
     }
     @FXML
     void AddClient(ActionEvent event) {
         Client c = new Client();
         boolean valide=true;
-        if(!(num_tel.validate() && prenom.validate() && email.validate() && nom.validate())){valide=false;
+        prenom.resetValidation();
+        email.resetValidation();
+        nom.resetValidation();
+        num_tel.resetValidation();
+        if((num_tel.getText().isEmpty() || prenom.getText().isEmpty() || email.getText().isEmpty() || nom.getText().isEmpty())){valide=false;
             num_tel.validate(); prenom.validate(); email.validate(); nom.validate();
-//            int t=0;
-//            try {
-//                Integer.parseInt(num_tel.getText());
-//            }catch (NumberFormatException e){
-//                t=-1;
-//            }
-//            if(t==-1) {
-//                valide = false;
-////                prenom.resetValidation();
-////               email.resetValidation();
-////                nom.resetValidation();
-//                num_tel.activeValidatorProperty();
-//            }
-//            else {
-//                valide = true;
-////                num_tel.resetValidation();
-////                prenom.resetValidation();
-////                email.resetValidation();
-////                nom.resetValidation();
-//            }
-
-            if(!num_tel.validate()){
-//              //  prenom.resetValidation();
-                num_tel.validate();
-//              //  nom.resetValidation();
-//               // num_tel.resetValidation();
-                valide = false;
-            }else {
-                valide = true;
+        }
+   else {
+            if(!num_tel.getText().matches("(\\+212|0)([ \\-_/]*)(\\d[ \\-_/]*){9}")) {
+                    num_tel.validate();
+                    valide = false;
             }
           if(!email.getText().matches("(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$)")){
-//              //  prenom.resetValidation();
                 email.validate();
-//              //  nom.resetValidation();
-//               // num_tel.resetValidation();
-       valide = false;
-            }else {
-             valide = true;
-          }
-
-
-////            num_tel.resetValidation();
-////            prenom.resetValidation();
-////            email.resetValidation();
-////            nom.resetValidation();
-
+                 valide = false;
+            }
         }
-      // else {num_tel.validate(); prenom.validate(); email.validate(); nom.validate(); valide=true;}
            if(add.getText()!="Update"&& valide) {
                 c.setNum_tel(num_tel.getText());
                 c.setNom(nom.getText());
@@ -129,7 +97,6 @@ public class AjouterClientController implements Initializable {
                 c.insert(c);Vider();
                Alert alert = new Alert(Alert.AlertType.INFORMATION);alert.setHeaderText(null);
                alert.setContentText("Client Ajouter succesfuly ");alert.showAndWait();
-//                Annuler.setVisible(true);
             }
             else if(add.getText()=="Update"&& valide) {
                 if(this.sexe.getSelectedToggle().equals(this.homme)){LibeleSexe="Homme";}
@@ -141,7 +108,7 @@ public class AjouterClientController implements Initializable {
 
     }
 
-    public void setVisibilite(Boolean b){ Annuler.setVisible(b); }//Cacher le button Annuler l'ors de Modificattion
+    public void setVisibilite(Boolean b){ Annuler.setVisible(b); }
 
     @FXML
         public void  Retour(ActionEvent event) throws IOException {
@@ -163,7 +130,6 @@ public class AjouterClientController implements Initializable {
     public void setUpdate(String re){
         add.setText(re.toString());
     }
-
 
 
     @FXML

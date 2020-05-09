@@ -68,7 +68,7 @@ public class MasterpageController implements Initializable {
     @Override
     public void initialize(URL URL, ResourceBundle rb){
        // navl.NavRouter("CommandeView/Commande",Parent);
-         navl.NavRouter("StatistiqueView/Statistique",Parent);
+        navl.NavRouter("CatégorieView/Categorie",Parent);
         //navl.NavRouter("StatistiqueView/Statistique",Parent);
     }
     @FXML

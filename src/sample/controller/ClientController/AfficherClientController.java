@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import sample.assests.helper.Helper;
 import sample.model.Client;
 import sample.model.Command;
 import sample.model.Produit;
@@ -57,13 +58,14 @@ public class AfficherClientController implements Initializable {
     void Refresh(ActionEvent event){ Display.setItems(c.ShowAllClient()); }
     @FXML
     void search(ActionEvent event) {
-            if(!searchFX.validate()) {
-//                 Display.setItems(c.ShowAllClient());
+            searchFX.resetValidation();
+            if(searchFX.getText().isEmpty()) {
                 searchFX.validate();
-
-
    }else
-                Display.setItems(c.SearchMultiClient(searchFX.getText()));
+               if(!c.SearchMultiClient(searchFX.getText()).isEmpty()) {
+                   Display.setItems(c.SearchMultiClient(searchFX.getText()));
+               }
+        Helper.Alert("Elément N'existe Pas");
                 searchFX.clear();
     }
 
@@ -90,8 +92,12 @@ public class AfficherClientController implements Initializable {
 
     @FXML
     void UpdClient(ActionEvent event) throws IOException {
-
-        if(Display.getSelectionModel().isEmpty()){
+        int cont=0;
+        ArrayList<Client> l=new ArrayList<>(Display.getSelectionModel().getSelectedItems());
+        for (Client res : l) {
+            cont++;
+        }
+        if(Display.getSelectionModel().isEmpty()||cont>1){
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);
             alert1.setContentText("Veuillez Selectionner le Client a Modifier !!");
             alert1.showAndWait();

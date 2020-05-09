@@ -9,6 +9,7 @@
 
 <?import com.jfoenix.validation.RequiredFieldValidator?>
 <?import com.jfoenix.validation.IntegerValidator?>
+<?import com.jfoenix.validation.RegexValidator?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="766.0" styleClass="ancho" stylesheets="@../../assests/style/css.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.ProduitController.AjoutProduitController">
    <children>
       <Pane layoutY="-14.0" prefHeight="592.0" prefWidth="813.0">
@@ -25,7 +26,7 @@
                   <RequiredFieldValidator message="Champ Quanity Obligatoire">
                      <!--                  <FontIcon iconLiteral="fas-exclamation-triangle"/>-->
                   </RequiredFieldValidator>
-                  <IntegerValidator layoutX="235.0" layoutY="282.0" message="Champ Quanity Int"/>
+                  <RegexValidator message="Veuillez Entrer Une Quantity Valid " regexPattern="^[1-9]\\d*$"/>
                </validators>
             </JFXTextField>
             <JFXButton fx:id="add" buttonType="RAISED" layoutX="269.0" layoutY="500.0" onAction="#AddProduct" prefHeight="33.0" prefWidth="115.0" stylesheets="@../../assests/style/css.css" text="Enregistrer" textFill="#0c8318">
@@ -48,7 +49,7 @@
                   <RequiredFieldValidator message="Champ Prix Obligatoire">
                      <!--                  <FontIcon iconLiteral="fas-exclamation-triangle"/>-->
                   </RequiredFieldValidator>
-                  <IntegerValidator layoutX="235.0" layoutY="282.0"  message="Champ Prix Int"/>
+                  <RegexValidator message="Veuillez Entrer Un Prix Valid " regexPattern="^[1-9]\\d*$"/>
                </validators>
             </JFXTextField>
             <JFXComboBox fx:id="Category" labelFloat="true" layoutX="208.0" layoutY="422.0" prefHeight="25.0" prefWidth="308.0" promptText="Selectionner  une  catégorie" >
@@ -56,6 +57,7 @@
                <RequiredFieldValidator message="Champ Category Obligatoire">
                   <!--                  <FontIcon iconLiteral="fas-exclamation-triangle"/>-->
                </RequiredFieldValidator>
+
             </validators>
          </JFXComboBox>
          </children>
