@@ -89,11 +89,16 @@ public class AjouterCommandeController implements Initializable {
     }
         @FXML
     void AddCommand(ActionEvent event) {
+            Double qnt_regex= Double.parseDouble(quantity.getText());
         Command C = new Command();
           boolean v=false;
                 if(adresse.validate()&&quantity.validate()&&allClient.validate()&&allClient.validate()&&datech.validate()&&allproduit.validate()){
                 v=true;
-            }else {
+            }  if  (qnt_regex<=0){  Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Erreur");alert.setHeaderText(null);
+                    alert.setContentText("La quantité ne doit pas etre inférieur ou egal à zéro !!! ");
+                    alert.showAndWait();}
+                else {
                     adresse.validate();
                     quantity.validate();
                     allClient.validate();
@@ -101,7 +106,8 @@ public class AjouterCommandeController implements Initializable {
                     datech.validate();
                     allproduit.validate();
                 }
-        if(add.getText()!="Update"&& v==true){
+
+        if(add.getText()!="Update"&& v==true&&qnt_regex>0){
 
             Produit p =allproduit.getSelectionModel().getSelectedItem();
             Client c =allClient.getSelectionModel().getSelectedItem();

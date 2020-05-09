@@ -109,6 +109,7 @@ public class AfficherClientController implements Initializable {
             c1=c1.SelectClient(c1.getId_client());
             m.setUpdate("Update");
             m.setVisibilite(false);
+            master.setResizable(false);
             m.setclient(c1);
             master.centerOnScreen();
             master.show();
@@ -127,6 +128,7 @@ public class AfficherClientController implements Initializable {
         Scene secene=new Scene(root, 800, 550);
         master.setTitle("Gestion Des Commandes");
         master.setScene(secene);
+        master.setResizable(false);
         master.show();
         System.out.println("hhh");
     }

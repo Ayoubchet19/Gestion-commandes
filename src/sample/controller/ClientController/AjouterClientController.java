@@ -90,6 +90,16 @@ public class AjouterClientController implements Initializable {
 ////                email.resetValidation();
 ////                nom.resetValidation();
 //            }
+
+            if(!num_tel.validate()){
+//              //  prenom.resetValidation();
+                num_tel.validate();
+//              //  nom.resetValidation();
+//               // num_tel.resetValidation();
+                valide = false;
+            }else {
+                valide = true;
+            }
           if(!email.getText().matches("(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$)")){
 //              //  prenom.resetValidation();
                 email.validate();
@@ -99,13 +109,15 @@ public class AjouterClientController implements Initializable {
             }else {
              valide = true;
           }
+
+
 ////            num_tel.resetValidation();
 ////            prenom.resetValidation();
 ////            email.resetValidation();
 ////            nom.resetValidation();
 
         }
-       else {num_tel.validate(); prenom.validate(); email.validate(); nom.validate(); valide=true;}
+      // else {num_tel.validate(); prenom.validate(); email.validate(); nom.validate(); valide=true;}
            if(add.getText()!="Update"&& valide) {
                 c.setNum_tel(num_tel.getText());
                 c.setNom(nom.getText());

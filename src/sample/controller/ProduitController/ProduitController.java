@@ -46,6 +46,7 @@ public class ProduitController implements Initializable {
         Scene secene=new Scene(root, 800, 550);
         master.setTitle("Gestion Des Commandes");
         master.setScene(secene);
+        master.setResizable(false);
         master.show();
     }
     @FXML
@@ -87,6 +88,7 @@ public class ProduitController implements Initializable {
             m.setVisibilite(false);
             master.centerOnScreen();
             master.show();
+            master.setResizable(false);
             master.setScene(secene);
 
         }

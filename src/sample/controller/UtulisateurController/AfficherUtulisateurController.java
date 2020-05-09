@@ -44,9 +44,11 @@ public class AfficherUtulisateurController implements Initializable {
         loder.setLocation(getClass().getResource("../../views/UtulisateurView/AjoutUtulisateur.fxml"));
         loder.load();
         Parent root =loder.getRoot();
-        Scene secene=new Scene(root, 800, 550);
+        Scene secene=new Scene(root, 800, 550);//!garder meme parametres de size
         master.setTitle("Gestion Des Commandes");
         master.setScene(secene);
+        master.setResizable(false);
+        master.centerOnScreen();//!applique a toutes les scenes !!
         master.show();
     }
     @FXML

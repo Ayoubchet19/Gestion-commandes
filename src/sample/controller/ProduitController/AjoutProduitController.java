@@ -53,6 +53,7 @@ public void vider(){label.clear();quantity.clear();Prix.clear();Category.getSele
 }
     @FXML
     void AddProduct(ActionEvent event) {
+        Double qnt_regex= Double.parseDouble(quantity.getText());
     Produit P = new Produit();
     Boolean valid=false;
         if(label.validate() || Prix.validate()|| quantity.validate() || Category.validate()){
@@ -68,7 +69,10 @@ public void vider(){label.clear();quantity.clear();Prix.clear();Category.getSele
                   Prix.validate();quantity.validate();
                   label.resetValidation();
                   Category.resetValidation();
-              }
+              } if  (qnt_regex<=0){  Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Erreur");alert.setHeaderText(null);
+                alert.setContentText("La quantité ne doit pas etre inférieur ou egal à zéro !!! ");
+                alert.showAndWait();}
               else
               valid=true;
             }else{
@@ -76,7 +80,7 @@ public void vider(){label.clear();quantity.clear();Prix.clear();Category.getSele
             label.validate();Prix.validate();quantity.validate();Category.validate();
             }
 
-     if(add.getText()!="Update"&&valid) {
+     if(add.getText()!="Update"&&valid&&qnt_regex>0) {
           Produit p = new Produit();
             p.setLibele(label.getText());
             p.setQuantite(Integer.parseInt(quantity.getText()));

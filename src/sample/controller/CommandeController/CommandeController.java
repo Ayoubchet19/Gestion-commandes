@@ -79,6 +79,7 @@ public class CommandeController implements Initializable {
             m.SetStatus(tab_Commandes.getSelectionModel().getSelectedItem().getStatus());
             m.SetVisibilite(false);
             master.centerOnScreen();
+            master.setResizable(false);
             master.show();
             master.setScene(secene);
         }
@@ -150,6 +151,7 @@ public class CommandeController implements Initializable {
         Scene secene=new Scene(root, 800, 550);
         master.setTitle("Gestion Des Commandes");
         master.setScene(secene);
+        master.setResizable(false);
         master.show();
     }
 

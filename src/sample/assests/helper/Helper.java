@@ -33,7 +33,7 @@ public class Helper {
         try {
             View = FXMLLoader.load(getClass().getResource("/sample/views/"+file+".fxml"));
             pane.setCenter(View);
-            new FadeIn(pane.getCenter()).play();
+            new SlideInRight(pane.getCenter()).play();
         }catch (Exception e){
             System.out.println(e.getMessage());
         }

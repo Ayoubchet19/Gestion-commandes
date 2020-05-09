@@ -1,4 +1,4 @@
-package sample.controller;
+package sample.controller.InfoController;
 
 public class InfoController {
 }
