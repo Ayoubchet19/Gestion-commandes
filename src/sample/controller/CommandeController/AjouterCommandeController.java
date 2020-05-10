@@ -96,7 +96,7 @@ public class AjouterCommandeController implements Initializable {
             datech.resetValidation();
             allproduit.resetValidation();
             status.resetValidation();
-          boolean v=false;
+          boolean v=true;
                 if(adresse.getText().isEmpty()||quantity.getText().isEmpty()||allClient.getSelectionModel().isEmpty()||allClient.getSelectionModel().isEmpty()||datech.getValue().toString().isEmpty()||status.getSelectionModel().isEmpty()){
                 v=true;
                 adresse.validate();
@@ -111,7 +111,7 @@ public class AjouterCommandeController implements Initializable {
                        v=false;
                 }
             }
-        if(add.getText()!="Update"&& v==false){
+        if(add.getText()!="Update"&& v){
             Produit p =allproduit.getSelectionModel().getSelectedItem();
             Client c =allClient.getSelectionModel().getSelectedItem();
               if(p.SelectQunt(p.getId(),Integer.parseInt(quantity.getText()))) {

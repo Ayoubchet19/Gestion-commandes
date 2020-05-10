@@ -113,7 +113,7 @@ public class ProduitController implements Initializable {
 
         if(Display.getSelectionModel().isEmpty()){
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);
-            alert1.setContentText("Veuillez Selectionner la Commande a supprimer !!");
+            alert1.setContentText("Veuillez Selectionner le Produit a supprimer !!");
             alert1.showAndWait();
         }
         else {
