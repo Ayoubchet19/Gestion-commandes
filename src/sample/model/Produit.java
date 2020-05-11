@@ -24,7 +24,7 @@ public class Produit  extends Dbhandeler {
 //!l'utulisation de la methode exequery()
     public void insert(Produit p){ this.exequery("INSERT INTO produit(Libele,Quantity,CategorieId,Prix)Values(?,?,?,?)",p.getLibele(),p.getQuantite(),p.getId_cat(),p.getPrix()); }
     public void SupprimerProd(int id){this.exequery("delete from produit where ProduitId=?",id); }
-    public void UPdate(int id, String lib, int qnt, Double Prix){this.exequery("update produit set Libele= ?,Quantity=?,Prix=? where ProduitId=?",lib,qnt,Prix,id); }
+    public void UPdate(int id, String lib, int qnt, Double Prix,int idc){this.exequery("update produit set Libele= ?,Quantity=?,Prix=?,CategorieId=? where ProduitId=?",lib,qnt,Prix,idc,id); }
     public ObservableList<Produit> ShowAllProduct(){
         ObservableList<Produit>Prod= FXCollections.observableArrayList();
         try{

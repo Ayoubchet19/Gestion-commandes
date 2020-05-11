@@ -7,6 +7,7 @@ import com.jfoenix.validation.RequiredFieldValidator;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -91,7 +92,8 @@ public void vider(){label.clear();quantity.clear();Prix.clear();Category.getSele
 
         }
     else if(add.getText()=="Update"&&valid){
-        P.UPdate(this.li.id,label.getText(),Integer.parseInt(quantity.getText()),Double.parseDouble(Prix.getText()));
+        Categorie cat=Category.getSelectionModel().getSelectedItem();
+        P.UPdate(this.li.id,label.getText(),Integer.parseInt(quantity.getText()),Double.parseDouble(Prix.getText()),cat.getId());
             vider();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);alert.setHeaderText(null);
           alert.setContentText("Product updated succesfuly ");alert.showAndWait();
@@ -112,9 +114,19 @@ public void vider(){label.clear();quantity.clear();Prix.clear();Category.getSele
     public void setcommd(Produit c){
         this.li=c;
         Categorie catego= new Categorie();
-        Category.setItems(catego.SelectCate(li.id_cat));
-        Category.getSelectionModel().select(0);//par defaut selectionner la ctaégorie trouveé
-        Category.setDisable(true);
+        int ids=0,i=0;
+       // Category.setItems(catego.SelectCate(li.id_cat));
+        Category.setItems(catego.showCategorie());
+        ObservableList<Categorie> items = Category.getItems();
+        for(Categorie item: items){
+
+             if(item.getId()==li.id_cat){
+                 ids=i;
+             }
+            i++;
+        }
+        Category.getSelectionModel().select(ids);//par defaut selectionner la ctaégorie trouveé
+        //Category.setDisable(true); //!
         quantity.setText(li.getQuantite()+"");
         Prix.setText(li.getPrix()+"");
         label.setText(li.getLibele());

@@ -19,7 +19,9 @@ public class Categorie extends Dbhandeler {
         try{
             Connection con=this.Connect();
             Statement stm=con.createStatement();
-            ResultSet rs=stm.executeQuery("SELECT * FROM Categorie");
+           // ResultSet rs=stm.executeQuery("SELECT * FROM Categorie");
+           // ResultSet rs=stm.executeQuery("select * from Categorie where CatId<>1");
+            ResultSet rs=stm.executeQuery("select * from Categorie ");
             while(rs.next()){
                 Categorie c =new Categorie();
                 c.setId(rs.getInt("CatId"));
@@ -33,6 +35,29 @@ public class Categorie extends Dbhandeler {
         }
         return Categ;
     }
+
+    public ObservableList<Categorie> showCategorienoannuler(){
+        ObservableList<Categorie>Categ= FXCollections.observableArrayList();
+        try{
+            Connection con=this.Connect();
+            Statement stm=con.createStatement();
+            // ResultSet rs=stm.executeQuery("SELECT * FROM Categorie");
+            ResultSet rs=stm.executeQuery("select * from Categorie where CatId<>1");
+            while(rs.next()){
+                Categorie c =new Categorie();
+                c.setId(rs.getInt("CatId"));
+                c.setLibele(rs.getString("LibeleCat"));
+                Categ.add(c);
+            }
+            stm.close();
+            con.close();
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return Categ;
+    }
+
+
 
     public ObservableList<Categorie> SelectCate(int idc){
         ObservableList<Categorie>cat1= FXCollections.observableArrayList();
@@ -81,7 +106,9 @@ public class Categorie extends Dbhandeler {
             System.out.println(e.getMessage()); }
         return cat1;
     }
-
+   public void exq(String re,String text,int id){
+       this.exequery(re,text,id);
+   }
 
 
     public int getId() {

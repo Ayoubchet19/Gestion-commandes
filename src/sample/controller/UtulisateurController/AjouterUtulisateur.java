@@ -46,7 +46,7 @@ public class AjouterUtulisateur implements Initializable {
           }
 
     if(!pass.getText().equals(ConfirmPass.getText())){
-          ConfirmPass.activeValidatorProperty();
+          ConfirmPass.validate();
         valid=false;
         pass.clear();
         ConfirmPass.clear();
