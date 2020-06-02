@@ -1,6 +1,7 @@
 package sample.controller.CommandeController;
 
 import com.jfoenix.controls.JFXTextField;
+import com.opencsv.CSVWriter;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,11 +10,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Label;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import sample.assests.helper.Helper;
 import sample.model.Command;
-
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -21,7 +25,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class CommandeController implements Initializable {
+public class CommandeController  implements Initializable {
     private Command C=new Command();
     @FXML
     private TableView<Command> tab_Commandes;
@@ -55,6 +59,54 @@ public class CommandeController implements Initializable {
     private JFXTextField search;
     @FXML
     private Label Total;
+
+
+    @FXML
+    void exportcsv(ActionEvent event) {
+
+       //File file = new File(System.getProperty("user.home") + "/Desktop/raport.csv");
+        FileChooser fileChooser = new FileChooser();
+
+        //Set extension filter for text files
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Csv files (*.csv)", "*.csv");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        //Show save file dialog
+       File file = fileChooser.showSaveDialog(Total.getScene().getWindow());
+
+        if (file != null) {
+
+
+            try {
+                // create FileWriter object with file as parameter
+                FileWriter outputfile = new FileWriter(file);
+
+                // create CSVWriter object filewriter object as parameter
+                CSVWriter writer = new CSVWriter(outputfile);
+
+                // adding header to csv
+           String[] header = { "IDCommande", "ClientName", "Produit","Prix","Adress","Quantite","Status","Total","Date" };
+                writer.writeNext(header);
+
+                ObservableList<Command> list =C.ShowAllcommand();
+               list.forEach((data) -> {
+                   String donnes[] = {data.getId()+"", data.getClient(), data.getProduit(),data.getPrix()+"",data.getQuantite()+"",data.getStatus(),data.getTotal()+"",data.getDate()};
+                   writer.writeNext(donnes);
+         });
+
+                writer.close();
+                Helper.Alert("Fichier Csv Sauvegarde Avec Succes ");
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+
+
+
     @FXML
     void modicomm(ActionEvent event) throws IOException {
        int cont=0;

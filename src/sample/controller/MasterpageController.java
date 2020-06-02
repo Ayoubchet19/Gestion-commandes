@@ -67,9 +67,8 @@ public class MasterpageController implements Initializable {
     private BorderPane Parent;
     @Override
     public void initialize(URL URL, ResourceBundle rb){
-       // navl.NavRouter("CommandeView/Commande",Parent);
-        navl.NavRouter("CatégorieView/Categorie",Parent);
-        //navl.NavRouter("StatistiqueView/Statistique",Parent);
+        navl.NavRouter("CommandeView/Commande",Parent);
+
     }
     @FXML
     void Commande(ActionEvent event) {
