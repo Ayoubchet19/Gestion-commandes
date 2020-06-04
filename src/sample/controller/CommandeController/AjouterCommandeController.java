@@ -41,10 +41,10 @@ public class AjouterCommandeController implements Initializable {
         if(b.equals("En attend")){
             //System.out.println(b);
             status.getSelectionModel().select(0);
-        }if(b.equals("Livreé")){
+        }if(b.equals("Livree")){
 
             status.getSelectionModel().select(1);
-        }if(b.equals("Annuleé")) {
+        }if(b.equals("Annulee")) {
             status.getSelectionModel().select(2);
         }
     }
@@ -135,7 +135,7 @@ public class AjouterCommandeController implements Initializable {
                   alert.showAndWait();
               }
 
-            }else if(add.getText()=="Update"&& v==false) {
+            }else if(add.getText()=="Update"&& v) {
             Produit p =allproduit.getSelectionModel().getSelectedItem();
             Client c =allClient.getSelectionModel().getSelectedItem();
             if(p.SelectQunt(p.getId(),Integer.parseInt(quantity.getText()))) {
@@ -145,7 +145,7 @@ public class AjouterCommandeController implements Initializable {
             else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
-                alert.setContentText("Stock Epuisé ");
+                alert.setContentText("Stock Epuise ");
                 alert.showAndWait();
             }
        }
@@ -177,7 +177,7 @@ public class AjouterCommandeController implements Initializable {
               allClient.setItems(C.ShowAllClient());
               Produit P=new Produit();
               allproduit.setItems(P.ShowAllProduct()); //! A consulter
-              status.getItems().addAll("En attend","Livreé","Annuleé");
+              status.getItems().addAll("En attend","Livree","Annulee");
 //        SetStatus("En attend");
     }
 }
