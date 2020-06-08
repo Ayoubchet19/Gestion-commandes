@@ -18,6 +18,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import sample.assests.helper.Helper;
 import sample.model.Categorie;
 import sample.model.Client;
 import sample.model.Command;
@@ -55,7 +56,7 @@ public void vider(){label.clear();quantity.clear();Prix.clear();Category.getSele
     @FXML
     void AddProduct(ActionEvent event) {
     Produit P = new Produit();
-    Boolean valid=true;
+        Boolean valid=true;
         label.resetValidation();
         Prix.resetValidation();
         quantity.resetValidation();
@@ -71,13 +72,15 @@ public void vider(){label.clear();quantity.clear();Prix.clear();Category.getSele
              quantity.validate();
              valid=false;
          }
-         if(!Prix.getText().matches("^[1-9]\\d*$")){
-         valid=false;
-         Prix.validate();
+
+         if(!Prix.getText().matches("^[1-9]\\d+[.]?[\\d]*")){
+             Prix.validate();
+             valid=false;
+
          }
      }
 
-     if(add.getText()!="Update"&&valid) {
+     if(add.getText()!="Modifier"&&valid) {
           Produit p = new Produit();
             p.setLibele(label.getText());
             p.setQuantite(Integer.parseInt(quantity.getText()));
@@ -87,16 +90,16 @@ public void vider(){label.clear();quantity.clear();Prix.clear();Category.getSele
             p.insert(p);
             vider();
             Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);
-       alert1.setContentText("Product Added Succefuly");
+       alert1.setContentText("Product Ajouté avec réussite");
        alert1.showAndWait();
 
         }
-    else if(add.getText()=="Update"&&valid){
+    else if(add.getText()=="Modifier"&&valid){
         Categorie cat=Category.getSelectionModel().getSelectedItem();
         P.UPdate(this.li.id,label.getText(),Integer.parseInt(quantity.getText()),Double.parseDouble(Prix.getText()),cat.getId());
             vider();
             Alert alert = new Alert(Alert.AlertType.INFORMATION);alert.setHeaderText(null);
-          alert.setContentText("Product updated succesfuly ");alert.showAndWait();
+          alert.setContentText("produit Modifiée Avec réussite  ");alert.showAndWait();
 
     }
     }

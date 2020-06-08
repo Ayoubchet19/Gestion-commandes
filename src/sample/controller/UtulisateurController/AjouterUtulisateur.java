@@ -60,7 +60,7 @@ public class AjouterUtulisateur implements Initializable {
             u.setPass(pass.getText());
             u.insert(u);vider();
         Alert alert1 = new Alert(Alert.AlertType.INFORMATION);alert1.setHeaderText(null);
-        alert1.setContentText("User Added Succefuly");
+        alert1.setContentText("Utilisateur Ajouté avec réussite");
         alert1.showAndWait();
         }
     }

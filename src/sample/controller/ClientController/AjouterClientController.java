@@ -86,7 +86,7 @@ public class AjouterClientController implements Initializable {
                  valide = false;
             }
         }
-           if(add.getText()!="Update"&& valide) {
+           if(add.getText()!="Modifier"&& valide) {
                 c.setNum_tel(num_tel.getText());
                 c.setNom(nom.getText());
                 c.setPrenom(prenom.getText());
@@ -96,14 +96,14 @@ public class AjouterClientController implements Initializable {
                 c.setEmail(email.getText());
                 c.insert(c);Vider();
                Alert alert = new Alert(Alert.AlertType.INFORMATION);alert.setHeaderText(null);
-               alert.setContentText("Client Ajouter succesfuly ");alert.showAndWait();
+               alert.setContentText("Client Ajouter avec réussite  ");alert.showAndWait();
             }
-            else if(add.getText()=="Update"&& valide) {
+            else if(add.getText()=="Modifier"&& valide) {
                 if(this.sexe.getSelectedToggle().equals(this.homme)){LibeleSexe="Homme";}
                 if(this.sexe.getSelectedToggle().equals(this.femme)){LibeleSexe="Femme";}
                 c.Upadate(this.li.id_client,num_tel.getText(),nom.getText(),prenom.getText(),LibeleSexe,email.getText());
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);alert.setHeaderText(null);
-                alert.setContentText("Client updated succesfuly ");alert.showAndWait();
+                alert.setContentText("Client modifieé avec réussite ");alert.showAndWait();
             }
 
     }

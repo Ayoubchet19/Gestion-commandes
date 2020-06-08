@@ -49,13 +49,13 @@
                   <RequiredFieldValidator message="Champ Prix Obligatoire">
                      <!--                  <FontIcon iconLiteral="fas-exclamation-triangle"/>-->
                   </RequiredFieldValidator>
-                  <RegexValidator message="Veuillez Entrer Un Prix Valid " regexPattern="^[1-9]\\d*$"/>
+                  <RegexValidator message="Veuillez Entrer Un Prix Valid " regexPattern="^[1-9]\d+[.]?[\d]*"/>
                </validators>
-            </JFXTextField>
-            <JFXComboBox fx:id="Category" labelFloat="true" layoutX="208.0" layoutY="422.0" prefHeight="25.0" prefWidth="308.0" promptText="Selectionner  une  catégorie" >
-            <validators>
-               <RequiredFieldValidator message="Champ Category Obligatoire">
-                  <!--                  <FontIcon iconLiteral="fas-exclamation-triangle"/>-->
+             </JFXTextField>
+             <JFXComboBox fx:id="Category" labelFloat="true" layoutX="208.0" layoutY="422.0" prefHeight="25.0" prefWidth="308.0" promptText="Selectionner  une  catégorie" >
+             <validators>
+                <RequiredFieldValidator message="Champ Category Obligatoire">
+                   <!--                  <FontIcon iconLiteral="fas-exclamation-triangle"/>-->
                </RequiredFieldValidator>
 
             </validators>

@@ -98,7 +98,7 @@ public class AjouterCommandeController implements Initializable {
             status.resetValidation();
           boolean v=true;
                 if(adresse.getText().isEmpty()||quantity.getText().isEmpty()||allClient.getSelectionModel().isEmpty()||allClient.getSelectionModel().isEmpty()||datech.getValue().toString().isEmpty()||status.getSelectionModel().isEmpty()){
-                v=true;
+                v=false;
                 adresse.validate();
                 quantity.validate();
                 allClient.validate();
@@ -111,7 +111,7 @@ public class AjouterCommandeController implements Initializable {
                        v=false;
                 }
             }
-        if(add.getText()!="Update"&& v){
+        if(add.getText()!="Modifier"&& v){
             Produit p =allproduit.getSelectionModel().getSelectedItem();
             Client c =allClient.getSelectionModel().getSelectedItem();
               if(p.SelectQunt(p.getId(),Integer.parseInt(quantity.getText()))) {
@@ -126,7 +126,7 @@ public class AjouterCommandeController implements Initializable {
                   Annuler.setVisible(true);
                   Alert alert = new Alert(Alert.AlertType.INFORMATION);
                   alert.setHeaderText(null);
-                  alert.setContentText("Commande Added succesfuly ");
+                  alert.setContentText("Commande Ajouté avec réussite  ");
                   alert.showAndWait();
               }else {
                   Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -135,17 +135,17 @@ public class AjouterCommandeController implements Initializable {
                   alert.showAndWait();
               }
 
-            }else if(add.getText()=="Update"&& v) {
+            }else if(add.getText()=="Modifier"&& v) {
             Produit p =allproduit.getSelectionModel().getSelectedItem();
             Client c =allClient.getSelectionModel().getSelectedItem();
             if(p.SelectQunt(p.getId(),Integer.parseInt(quantity.getText()))) {
             C.Upadate(this.li.id,Integer.parseInt(quantity.getText()),adresse.getText(),status.getValue(),datech.getValue().toString());
             Alert alert = new Alert(Alert.AlertType.INFORMATION);alert.setHeaderText(null);
-            alert.setContentText("Commande updated succesfuly ");alert.showAndWait();}
+            alert.setContentText("Commande Modifieé avec réussite ");alert.showAndWait();}
             else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
-                alert.setContentText("Stock Epuise ");
+                alert.setContentText("Stock Epuisé ");
                 alert.showAndWait();
             }
        }

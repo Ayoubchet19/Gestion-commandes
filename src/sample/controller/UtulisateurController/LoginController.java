@@ -45,11 +45,11 @@ public class LoginController extends Utulisateur implements Initializable  {
              int rep=verfierLogin(email.getText(),pass.getText());
              switch (rep){
                  case 1:
-                     msg="Password Incorect";
+                     msg="Mot de passe Incorrect";
                      pass.clear();
                      break;
                  case -1:
-                     msg="Password et email/name Incorect ";
+                     msg="Mot de passe  et email/le nom d'utulisateur Incorrect ";
                      pass.clear();
                      email.clear();
                      break;

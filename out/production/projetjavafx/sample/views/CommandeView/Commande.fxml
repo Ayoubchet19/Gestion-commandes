@@ -44,7 +44,7 @@
                         <TableColumn fx:id="adress_col" prefWidth="114.0" text="Adresse" />
                         <TableColumn fx:id="quantite_col" prefWidth="118.0" text="Quantité" />
                         <TableColumn fx:id="status_col" prefWidth="119.0" text="Status" />
-                        <TableColumn fx:id="total_col" prefWidth="66.0" text="Total" />
+                        <TableColumn fx:id="total_col" prefWidth="66.0" text="Total En DH" />
                         <TableColumn fx:id="Date_col" prefWidth="225.0" text="Date" />
                     </columns>
                   </TableView>

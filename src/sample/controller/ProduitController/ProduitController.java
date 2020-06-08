@@ -95,7 +95,7 @@ public class ProduitController implements Initializable {
             AjoutProduitController m=loder.getController();
             Produit c1 = Display.getSelectionModel().getSelectedItem();//Recuperer le produit selectionneé apartir tableview
             c1=c1.searchob(c1.getId());//Recuperer l'Objet
-            m.setUpdate("Update");//changement de button Enregister vers UPdate
+            m.setUpdate("Modifier");//changement de button Enregister vers UPdate
             m.setcommd(c1);//passer l'objet trouvé vers la mehode setcommd
             m.setVisibilite(false);
             master.centerOnScreen();

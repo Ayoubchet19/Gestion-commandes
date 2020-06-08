@@ -95,7 +95,7 @@ public class CommandeController  implements Initializable {
          });
 
                 writer.close();
-                Helper.Alert("Fichier Csv Sauvegarde Avec Succes ");
+                Helper.Alert("Fichier Csv Sauvegardé avec réussite ");
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -131,7 +131,7 @@ public class CommandeController  implements Initializable {
             AjouterCommandeController m=loder.getController();
             Command c1 = tab_Commandes.getSelectionModel().getSelectedItem();
             c1=c1.searchob(c1.getId()+"");
-            m.setUpdate("Update");
+            m.setUpdate("Modifier");
             m.setcommd(c1);
             tab_Commandes.getSelectionModel().getSelectedItem();
             m.SetStatus(tab_Commandes.getSelectionModel().getSelectedItem().getStatus());

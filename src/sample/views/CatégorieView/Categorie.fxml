@@ -26,7 +26,7 @@
             </RequiredFieldValidator>
          </validators>
       </JFXTextField>
-      <JFXButton fx:id="add" buttonType="RAISED" layoutX="467.0" layoutY="314.0" onAction="#Addcat" prefHeight="33.0" prefWidth="105.0" stylesheets="@../../assests/style/css.css" text="Enregistrer" textFill="WHITE">
+      <JFXButton fx:id="add" buttonType="RAISED" layoutX="452.0" layoutY="381.0" onAction="#Addcat" prefHeight="33.0" prefWidth="105.0" stylesheets="@../../assests/style/css.css" text="Enregistrer" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -53,30 +53,30 @@
             </Text>
          </children>
       </Pane>
-      <TableView fx:id="data" layoutX="51.0" layoutY="314.0" prefHeight="200.0" prefWidth="152.0">
+      <TableView fx:id="data" layoutX="52.0" layoutY="339.0" prefHeight="200.0" prefWidth="152.0">
         <columns>
           <TableColumn fx:id="id" prefWidth="75.0" text="Id" />
           <TableColumn fx:id="lib" prefWidth="75.0" text="Libele" />
         </columns>
       </TableView>
-      <JFXTextField fx:id="rechrtex" layoutX="57.0" layoutY="272.0" prefHeight="25.0" prefWidth="141.0" promptText="Categorie a Recherche">
+      <JFXTextField fx:id="rechrtex" layoutX="57.0" layoutY="272.0" prefHeight="25.0" prefWidth="169.0" promptText="Categorie a Recherche">
          <validators>
             <RequiredFieldValidator message="Veuillez Saisir libele categorie">
                <!--                  <FontIcon iconLiteral="fas-exclamation-triangle"/>-->
             </RequiredFieldValidator>
          </validators>
       </JFXTextField>
-      <Button fx:id="SearchButton" layoutX="224.0" layoutY="307.0" mnemonicParsing="false" onAction="#Search" prefHeight="32.0" prefWidth="32.0">
+      <Button fx:id="SearchButton" layoutX="223.0" layoutY="341.0" mnemonicParsing="false" onAction="#Search" prefHeight="32.0" prefWidth="32.0">
          <graphic>
             <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="14.0" text="" wrappingWidth="12.0" />
          </graphic>
       </Button>
-      <Button fx:id="refre" layoutX="224.0" layoutY="359.0" mnemonicParsing="false" onAction="#Refresh" prefHeight="32.0" prefWidth="32.0">
+      <Button fx:id="refre" layoutX="223.0" layoutY="393.0" mnemonicParsing="false" onAction="#Refresh" prefHeight="32.0" prefWidth="32.0">
          <graphic>
             <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" />
          </graphic>
       </Button>
-      <Button fx:id="modicomm" layoutX="224.0" layoutY="414.0" mnemonicParsing="false" onAction="#modicomm" prefHeight="32.0" prefWidth="32.0" textFill="WHITE">
+      <Button fx:id="modicomm" layoutX="223.0" layoutY="448.0" mnemonicParsing="false" onAction="#modicomm" prefHeight="32.0" prefWidth="32.0" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
@@ -88,7 +88,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="supcom" layoutX="220.0" layoutY="467.0" mnemonicParsing="false" onAction="#supcom" prefHeight="37.0" prefWidth="32.0" textFill="WHITE">
+      <Button fx:id="supcom" layoutX="219.0" layoutY="501.0" mnemonicParsing="false" onAction="#supcom" prefHeight="37.0" prefWidth="32.0" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>

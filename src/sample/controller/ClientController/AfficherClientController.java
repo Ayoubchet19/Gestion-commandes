@@ -65,7 +65,7 @@ public class AfficherClientController implements Initializable {
                if(!c.SearchMultiClient(searchFX.getText()).isEmpty()) {
                    Display.setItems(c.SearchMultiClient(searchFX.getText()));
                }
-        Helper.Alert("Elément N'existe Pas");
+       else Helper.Alert("Elément N'existe Pas");
                 searchFX.clear();
     }
 
@@ -113,7 +113,7 @@ public class AfficherClientController implements Initializable {
             AjouterClientController m=loder.getController();
             Client c1 = Display.getSelectionModel().getSelectedItem();
             c1=c1.SelectClient(c1.getId_client());
-            m.setUpdate("Update");
+            m.setUpdate("Modifier");
             m.setVisibilite(false);
             master.setResizable(false);
             m.setclient(c1);
