@@ -44,6 +44,11 @@ public class AjouterUtulisateur implements Initializable {
               email.validate();
               valid=false;
           }
+          if(!pass.getText().equals(ConfirmPass.getText())){
+              Alert alert1 = new Alert(Alert.AlertType.WARNING);alert1.setHeaderText(null);
+              alert1.setContentText("Mot de passe et confirmmation doit etre  identique !! ");
+              alert1.showAndWait();
+          }
 
     if(!pass.getText().equals(ConfirmPass.getText())){
           ConfirmPass.validate();

@@ -68,7 +68,7 @@ public class CategorieController implements Initializable {
                  label.resetValidation();
                  Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
                  alert1.setHeaderText(null);
-                 alert1.setContentText("Categorie Added Succefuly");
+                 alert1.setContentText("Categorie Ajoutee avec reussite ");
                  alert1.showAndWait();
             }else {
                      Categorie cat=new Categorie();
